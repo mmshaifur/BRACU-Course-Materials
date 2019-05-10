@@ -1,0 +1,18 @@
+<html>
+ <!--    form13.html   13.10.2006 -->
+ 
+ <head>
+  <title> Fun with Timeouts </title>
+  <script type="text/javascript">
+    function Move()
+    // Results: sets the current page contents to be newhome.html
+    {
+        self.location.href = "newhome.html";
+    }
+  </script>
+ </head>
+
+ <body onload="setTimeout('Move()', 3000);">
+   This page has moved to <a href="newhome.html">newhome.html</a>.  
+ </body>
+</html>

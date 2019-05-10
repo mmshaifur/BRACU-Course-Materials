@@ -1,0 +1,21 @@
+<html>
+ <!--   form11.html   13.10.2006 -->
+ <head> 
+  <title> Fun with Frames</title>
+  <script type="text/javascript">
+    function Help(){
+      parent.Output.document.open();
+      parent.Output.document.write("<html><h1>This might be a context-"+
+               "sensitive help message, depending on the "+
+               "application and state of the page.</h1></html>");
+      parent.Output.document.close();
+    }       
+  </script>
+ </head>
+
+ <body>
+  <form name="ButtonForm">
+    <input type="button" value="Click for Help" onclick="Help();"/>
+  </form>
+ </body>
+</html>

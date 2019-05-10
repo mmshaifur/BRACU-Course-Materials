@@ -1,0 +1,31 @@
+<html>
+<!--   js11.html  16.08.2006 -->
+
+<head>
+  <title>Time page</title>
+</head>
+
+<body>
+  Time when page was loaded:
+  <script type="text/javascript">
+    now = new Date();
+
+    document.write("<p>" + now + "</p>");
+
+    time = "AM";
+    hours = now.getHours();
+    if (hours > 12) {
+        hours -= 12;
+        time = "PM"
+    }
+    else if (hours == 0) {
+        hours = 12;
+    }
+    document.write("<p>" + hours + ":" +
+                   now.getMinutes() + ":" +
+                   now.getSeconds() + " " +
+                   time + "</p>");
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+<html>
+<!--   js12.html  29.09.2008 -->
+
+<head>
+  <title>Time page</title>
+</head>
+
+<body>
+  This year:
+  <script type="text/javascript">
+    now = new Date();
+    newYear = new Date(2017,0,1);
+
+    secs = Math.round((now-newYear)/1000);
+
+    days = Math.floor(secs / 86400);
+    secs -= days*86400;
+    hours = Math.floor(secs / 3600);
+    secs -= hours*3600;
+    minutes = Math.floor(secs / 60);
+    secs -= minutes*60
+
+    document.write(days + " days, " +
+                   hours + " hours, " +
+                   minutes + " minutes, and " +
+                   secs + " seconds.");
+  </script>
+</body>
+</html>
+
+

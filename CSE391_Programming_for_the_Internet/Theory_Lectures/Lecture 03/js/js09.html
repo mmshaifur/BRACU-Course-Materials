@@ -1,0 +1,50 @@
+<html>
+<!--   js09.html  16.08.2006 -->
+
+<head>
+ <title>Palindrome Checker</title>
+  
+  <script type="text/javascript">
+function Strip(str)
+// Assumes: str is a string
+// Returns: str with all but letters removed
+{
+  var copy = "";
+  for (var i = 0; i < str.length; i++) {
+    if ((str.charAt(i) >= "A" && str.charAt(i) <= "Z") ||
+        (str.charAt(i) >= "a" && str.charAt(i) <= "z")) {
+      copy += str.charAt(i);
+    }
+  }
+  return copy;
+}
+
+function IsPalindrome(str)
+// Assumes: str is a string
+// Returns: true if str is a palindrome, else false
+{
+  str = Strip(str.toUpperCase());
+  
+  for(var i = 0; i < Math.floor(str.length/2); i++) {
+    if (str.charAt(i) != str.charAt(str.length-i-1)) {
+      return false;
+    }
+  }
+  return true;
+}
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    text = prompt("Enter a word or phrase", "Madam, I'm Adam");
+
+    if (IsPalindrome(text)) {
+      document.write("'" + text + "' <b>is</b> a palindrome.");
+    }
+    else {
+      document.write("'" + text + "' <b>is not</b> a palindrome.");
+    }
+  </script>
+</body>
+</html>

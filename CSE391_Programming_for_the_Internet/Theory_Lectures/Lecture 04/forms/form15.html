@@ -1,0 +1,36 @@
+<html>
+ <!--    form15.html   13.10.2006 -->
+ 
+ <head>
+  <title> Fun with Cookies </title>
+  <script type="text/javascript" 
+     src="cookie.js">
+  </script>
+
+  <script type="text/javascript">
+    function Greeting()
+    // Results: displays greeting using cookie
+    {
+      visitCount = getCookie("visits");
+      if (visitCount == "") {
+        alert("Welcome to my page, newbie.");
+        setCookie("visits", 1);
+      }
+      else {
+        visitCount = parseFloat(visitCount)+1;
+        alert("Welcome back for visit #" + visitCount);
+        setCookie("visits", visitCount);
+      }
+    }
+  </script>
+ </head>
+
+ <body onLoad="Greeting();">
+  Here is the stuff in my page.
+  <form name="ClearForm">
+   <div style="text-align: center;"> 
+      <input type="button" value="Clear Cookie" onclick="delCookie('visits');" />
+   </div> 
+  </form>
+ </body>
+</html>

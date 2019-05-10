@@ -1,0 +1,35 @@
+<html> 
+<!--   form12.html   12.09.2005 -->
+ 
+ <head> <title>Fun with Frames</title>
+  <script type="text/javascript"   
+          src="http://www.csc.liv.ac.uk/~avf/comp519/JS/verify.js"> 
+  </script>
+  <script type="text/javascript">
+      function Table()
+      {
+        parent.Output.document.open(); 
+        parent.Output.document.write("This might be a context-" + 
+               "sensitive help message, depending on the " +
+               "application and state of the page.");
+        
+        parent.Output.document.close();
+      }       
+  </script>
+ </head>
+
+ <body>
+  <form name="ButtonForm">
+    <div style="text-align:center">
+      Show the numbers from <input type="text" name="lowRange" size=4 value=1 
+                                   onChange="VerifyInt(this);" /> 
+      to <input type="text" name="highRange" size=4 value=10 
+                onChange="VerifyInt(this);" />
+      raised to the power of <input type="text" name="power" size=3 value=2 
+                                    onChange="VerifyInt(this);" />
+      <br/><br/>
+               <input type="button" value="Generate Table" onClick="Table();" />
+    </div>
+  </form>
+ </body>
+</html>

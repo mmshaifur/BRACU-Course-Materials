@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+   <title>Generating random permutations</title>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+   <style type="text/css">
+     p {  text-align: center;
+     }
+   </style>
+
+   <!--  Script for verifying that a textbox contains an integer in
+         a specified range.  -->
+   <script type="text/javascript" src="verify.js">
+   </script>
+
+   <!--  Scripts for other functions used in this page --> 
+   <script type="text/javascript">
+     // <![CDATA[
+     function Permutation(n)
+     /*  Assumes that n is a positive integer. 
+         Returns the permutation as a string.  */
+    {
+       var p = new Array(n);  
+       var i, k, temp;
+       var finish = Math.pow(n,3) * Math.log(n) * 12, message = "";
+  
+       for (i = 0; i < n; i++)
+           p[i] = i+1;
+
+       for (i = 1; i <= finish; i++)
+            if (Math.random () < 0.5)  //    flip a coin, and if "heads" swap two
+                                       // randomly selected adjacent elements
+               {  
+                  k = Math.floor(Math.random() * (p.length - 1));
+                  temp = p[k];
+                  p[k] = p[k+1];
+                  p[k+1] = temp;
+               } 
+       for (i = 0; i < n; i++) 
+           message = message + p[i] + " ";
+ 
+       return message; 
+    } 
+
+    function checkForEnter(Box, event)
+    {
+       if ( (event.keyCode == 13) && (Box.value != "") )
+          {   return true;   }
+
+       return false;
+          
+    }
+    //  ]]>  
+  </script>
+
+</head>
+
+<body>
+   <p>Here is a function that will generate random 
+      permutations of a set of integers, <br/>where
+      a permutation is just an arrangement of the integers {1, 2, ..., n}.<br/>
+   </p>
+
+   <p>
+      Enter a positive integer n (1-30): &nbsp; 
+      <input type="text" id="N" size="1" maxlength="2" value="15" 
+             onkeyup="if (checkForEnter(this, event)) {  var n = getElementById('N');
+                      if (VerifyIntInRange (n, 1, 30)) {  var perm = Permutation(n.value);
+                      var out = getElementById('Output'); out.value=perm;}  } " />
+      <input type="button" value="Go!" 
+             onclick="var n = getElementById('N'); if (VerifyIntInRange(n, 1, 30)) { 
+                      var perm = Permutation(n.value); 
+                      var out = getElementById('Output'); out.value=perm; } 
+                      n.focus()" />
+      <br /><br /> 
+      Random permutation of {1, ..., n}.  <br />
+      <textarea id="Output" rows="2" cols="40"></textarea>
+   </p>
+</body>
+</html>
+

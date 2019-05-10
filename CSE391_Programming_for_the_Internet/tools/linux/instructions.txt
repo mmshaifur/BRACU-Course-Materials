@@ -1,0 +1,117 @@
+For Command line: 
+https://help.ubuntu.com/community/ApacheMySQLPHP
+
+
+
+For XAMPP:
+
+Source: http://www.apachefriends.org/faq_linux.html
+
+How do I install XAMPP?
+==========================================
+    Choose your flavor for your linux OS, the 32-bit or 64-bit version.
+
+    Change the permissions to the installer
+
+    chmod 755 xampp-linux-*-installer.run
+
+    Run the installer
+
+    sudo ./xampp-linux-*-installer.run
+
+    That's all. XAMPP is now installed below the /opt/lampp directory.
+
+
+
+
+How do I start XAMPP?
+==========================================
+
+To start XAMPP simply call this command:
+
+sudo /opt/lampp/lampp start
+
+You should now see something like this on your screen:
+
+Starting XAMPP 1.8.2...
+LAMPP: Starting Apache...
+LAMPP: Starting MySQL...
+LAMPP started.
+
+Ready. Apache and MySQL are running.
+
+If you get any error messages visit our community pages for help.
+
+Also, note that there is a graphical tool that you can use to manage your servers easily. You can start this tool with the following commands:
+
+cd /opt/lampp
+sudo ./manager-linux.run (or manager-linux-x64.run)
+
+
+
+
+How do I stop XAMPP?
+==========================================
+    To stop XAMPP simply call this command:
+
+    sudo /opt/lampp/lampp stop
+
+    You should now see something like this on your screen:
+
+    Stopping XAMPP 1.8.2...
+    LAMPP: Stopping Apache...
+    LAMPP: Stopping MySQL...
+    LAMPP stopped.
+
+    If you get any error messages visit our community pages for help.
+
+    Also, note that there is a graphical tool that you can use to start/stop your servers easily. You can start this tool with the following commands:
+
+    cd /opt/lampp
+    sudo ./manager-linux.run (or manager-linux-x64.run)
+
+
+
+
+How do I backup/restore my XAMPP system?
+==========================================
+
+    Warning: The backup and restore functionality is still under development and may not work correctly.
+
+    You can create the backup by calling:
+
+    sudo /opt/lampp/lampp backup
+
+    or
+
+    sudo /opt/lampp/lampp backup secret
+
+    Where "secret" is your MySQL root password. This command will create the following output:
+
+    Backing up databases...
+    Backing up configuration, log and htdocs files...
+    Calculating checksums...
+    Building final backup file...
+    Backup finished.
+    Take care of /opt/lampp/backup/xampp-backup-22-01-14.sh
+
+    The file /opt/lampp/backup/xampp-backup-22-01-14.sh (in the example above) contains your backup data. Store this file in a safe place.
+
+    On the new machine you need the same version of XAMPP as on your original/source machine.
+
+    sudo sh xampp-backup-22-01-14.sh
+
+    You should see something like this:
+
+    Checking integrity of files...
+    Restoring configuration, log and htdocs files...
+    Checking versions...
+    Installed: XAMPP 1.4.2
+    Backup from: XAMPP 1.4.2
+    Restoring MySQL databases...
+    Restoring MySQL user databases...
+    Backup complete. Have fun!
+    You may need to restart XAMPP to complete the restore.
+
+    That's all. Keep in mind that it's a beta feature.
+

@@ -1,0 +1,27 @@
+<html>
+<!--   js08.html  16.08.2006 -->
+
+<head>
+  <title> Random Dice Rolls Revisited</title>
+
+  <script type="text/javascript"
+  src="random.js">
+</script>
+</head>
+
+<body>
+  <div align="center">
+    <script type="text/javascript">
+      roll1 = RandomInt(1, 6);
+      roll2 = RandomInt(1, 6);
+
+      document.write("<img src='images/die" + 
+                     roll1 + ".gif'/>");
+      document.write("&nbsp;&nbsp;");
+      document.write("<img src='images/die" + 
+                     roll2 + ".gif'/>");
+
+    </script>
+  </div>
+</body>
+</html>

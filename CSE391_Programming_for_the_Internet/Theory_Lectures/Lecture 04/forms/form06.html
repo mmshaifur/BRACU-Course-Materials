@@ -1,0 +1,19 @@
+<html>
+ <!--    form06.html   16.08.2006 -->
+ 
+ <head>  <title> Fun with Text Boxes </title>  </head>
+
+ <body>
+  <form name="BoxForm">
+    Enter your name here: 
+    <input type="text"  name="userName" size=12 value="" />
+    <br /><br />
+    <input type="button" value="Click Me" 
+    onClick="alert('Thanks, ' + document.BoxForm.userName.value + 
+                                ', I needed that.');" />
+  </form>
+ </body>
+</html>
+
+
+

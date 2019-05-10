@@ -1,0 +1,27 @@
+<html>
+<head>  <title>(Sort of) Simple Lists</title>
+  <style type="text/css">
+  .my_li:before {content: counter(list) ": ";
+                 counter-increment: list;  }
+  </style>  </head>
+<body>
+<ul style="list-style-type: square;"> 
+ <li> ... first list item... </li>
+ <li> ... second list item... ... </li>
+</ul>
+<dl>   <dt> Dweeb </dt>
+   <dd> young excitable person who may 
+  mature into a <em>Nerd</em> </dd> 
+ <dt> Hacker </dt>  
+      <dd> a clever programmer </dd>
+ <dt> Nerd </dt>  <dd> technically bright but 
+        socially inept person </dd>
+</dl>
+ <ol style="list-style-type: none;
+            counter-reset: list 29;" >
+  <li class="my_li">Makes first item number 30.</li>
+  <li class="my_li">Next item continues to number 31.</li> 
+</ol>
+
+</body>
+</html>

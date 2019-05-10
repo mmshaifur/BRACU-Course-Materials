@@ -1,0 +1,57 @@
+<html>
+ <!--    form14.html   14.10.2007 -->
+ 
+ <head>
+  <title> Fun with Timeouts </title>
+  <script type="text/javascript">
+  function plurality(num, unit)
+  {
+    if (num != 1) return unit+"s"; else return unit;
+  }
+
+  function spacing(num)
+  {
+    if (num < 10) return "  "; else if (num < 100) return " "; else return "";
+  }
+
+  function timeSince()
+  {
+    var goalDate = new Date("May 27, 2017 10:00:00");
+    var current = new Date();
+    var diff = Math.floor((goalDate - current)/1000);
+    
+    var signage = "";
+    if (diff < 0) {
+        diff *= -1;
+        signage = "-"
+    }
+
+    var days = Math.floor(diff / 86400);
+    diff -= days*86400;
+    var hours = Math.floor(diff / 3600);
+    diff -= hours*3600;
+    var minutes = Math.floor(diff / 60);
+    diff -= minutes*60
+
+    document.CountForm.countdown.value=  
+        spacing(days) + signage + days + " " + plurality(days, "day") + ",\n" +
+        spacing(hours) + hours + " " + plurality(hours, "hour") + ",\n" +
+        spacing(minutes) + minutes + " " + plurality(minutes,"minute") + ",\n" +    
+        spacing(diff) + diff + " " + plurality(diff, "second"); 
+
+    window.setTimeout("timeSince();", 1000);
+  }
+  </script>
+
+ </head>
+
+ <body onload="timeSince();">
+  <form name="CountForm">
+    <div style="text-align: center;">
+      Countdown to Graduation 2017 <br>
+	  <textarea name="countdown" rows="4" cols="15" 
+               style="font-family: Courier;" onfocus="blur();"> </textarea>
+    </div>
+  </form>
+ </body>
+</html>

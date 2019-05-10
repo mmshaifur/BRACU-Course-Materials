@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+<div class="grid-container">
+	<div class="item1" id="page-header"><h2>M M Shaifur Rahman</h2></div>
+	<div class="item2">
+	<div id="menu"> <a href="./index.html">Home</a></div>
+	<div id="menu"> <a href="./index.html#about">Personal Info</a></div>
+	<div id="menu"> <a href="./index.html#hobby">Hobby</a></div>
+	<div id="menu"> <a href="./index.html#activity">Recent Activity</a></div>
+	<div id="menu"> <a href="./index.html#education">Education</a></div>
+	<div id="menu"> <a href="./index.html#favourite">My Favourite</a></div>
+	<div id="menu"> <a href="./index.html#links">Useful Links</a></div>
+	<div id="menu"> <a href="./assign2.html">Assignment 2</a></div>
+	</div>
+	<div class="item3" id="detail">
+	Hello Everyone,<br>
+	<pre>I am M M Shaifur Rahman. 
+	<br>Currently studying on Computer Science and Engineering in <a href="http://www.bracu.ac.bd">BRAC University.</a> 
+	<br>I worked as President in Robotics Club of BRAC University.
+	<br>Right now I am working as Researcher in Independent University Bangladesh</pre>
+	<div id="about">
+	<pre name="#about" id="personal-info"><h3>Personal Info:</h3>
+	<br>College Name: Bangladesh Navy College, Dhaka
+	<br>Date of Birth: 12 August
+	<br>Home District: Kushtia
+	<br>Country: Bangladesh</pre></div>
+	 
+	<div>
+	<pre name="#hobby"><h3 id="hobby">Hobby:</h3>
+	<br>I like to learn about technology stuffs.
+	<br>I love to travel unknown places.
+	<br>I used to read books, listen music, watch movies in my leisure time.
+	</pre>
+	</div>
+		<div>
+	<pre name="#activity"><h3 id="activity">Activity:</h3>
+	<br>Last week I visited Keranigonj with some of my friends.
+	<br>We stayed there for around 3hours. It was foggy morning.
+	<br>We started at 7.30am from Dhaka.
+	</pre>
+	</div>
+	
+	<div>
+	<h3 name="#education" id="education">Education:</h3>
+	<table style="width:100%" id="table">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Department</th>
+  </tr>
+  <tr>
+    <td>M.M. Shaifur</td>
+    <td>Rahman</td> 
+    <td>CSE</td>
+  </tr>
+</table>
+	</div>
+	
+	<div>
+	<pre name="#favourite"><h3 id="favourite">Favorite:</h3>
+	<ul>
+	<li>Robotics</li>
+	<li>Computer Programming</li>
+	<li>Biking</li>
+	<li>Traveling on two wheel</li>
+	</ul>
+	</pre>
+	</div>
+	
+	<div>
+	<pre name="#links"><h3 id="links">Useful Links:</h3>
+	<ul>
+	<li><a href="https://www.bracu.ac.bd" target="_blank">BRAC University</a></li>
+	<li><a href="https://robulab.org" target="_blank">Robotics Club of BRAC University</a></li>
+	<li><a href="https://robogearsbd.com" target="_blank">RobogearsBD</a></li>
+	</ul>
+	</pre>
+	</div>
+</div>	
+	<div class="item5"><img src="photo.jpg" alt="This is me" height="250" id="photo"></div>
+	<div class="item6" id="footer"><img src="http://www.bracu.ac.bd/sites/default/files/resources/media/bracu_logo.png" alt="bracu_logo" width="200px;"/><br>Copyright@<a href="http://shaifur.me">Shaifur Rahman. </a>Created on: 1st Februray 2018<br><font style="color:red"><b>Last Modified on<div id="lastModified"></div></b></font>
+	</div>
+	
+
+</div>
+<script>
+if(document.lastModified){
+    document.getElementById('lastModified').innerHTML=
+    new Date(document.lastModified).toLocaleString();
+}
+
+</script>
+
+</body>
+</html>

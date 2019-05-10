@@ -1,0 +1,178 @@
+<html>
+<!--  quiz.html  05.10.2005 -->
+
+<head>
+
+<script language="JavaScript">
+
+function Random_Int(low, high)
+// Given   : low <= high 
+// Returns : a random integer in the range [low, high] 
+{ 
+  return Math.floor(Math.random()*(high-low+1)) + low; 
+}  
+
+
+var question = new Array; // 2D array of questions
+var yes_answer = new Array;
+
+question[0]= new Array("What does HTML stand for?", //question 
+                  "A. Home Tool Markup Language", //answer 1
+                  "B. Hyperlinks and Text Markup Language", //answer 2
+                  "C. Hyper Text Markup Language" ); //answer 3
+
+yes_answer[0] =  "3"; // correct answer
+
+//repeat this template for each question
+
+question[1]= new Array("Who is making the Web standards?",
+	     "A. Microsoft",
+	     "B. The World Wide Web Consortium",
+	     "C. Netscape");
+
+yes_answer[1] =  "2";
+
+question[2]= new Array("Choose the correct HTML tag for the largest heading",
+             "A. h1",
+             "B. head",
+	     "C. h6");
+
+yes_answer[2] =  "1";
+
+question[3]= new Array("What is the correct HTML tag for inserting a line break?",
+	"A. break",
+	"B. lb",
+	"C. br");
+
+yes_answer[3] =  "3";
+
+
+question[4]= new Array("What is the correct HTML for adding a background color?",
+             "A. body color=\"yellow\"",
+             "B. background yellow background ",
+             "C. body bgcolor=\"yellow\" ");
+
+yes_answer[4] =  "3";
+
+
+var QUIZ_SIZE = question.length; //total # of questions
+var score = 0; //total score
+var current=0; // current question
+var question_number=0; //total questions asked
+
+function Ask_Number(){ //it asks for the number of questions
+
+var TEST = false;
+
+while(!TEST){
+ QUIZ_SIZE=parseInt(prompt("How many questions? From 1 to"+question.length+":","5"));
+ if ( (!isNaN(QUIZ_SIZE))&& (QUIZ_SIZE!=0) && (0<QUIZ_SIZE <= question.length)){
+   alert("You selected "+QUIZ_SIZE+" questions. Please press the button to start."); TEST=true;
+  }
+  else{
+   alert("You put a wrong number"); TEST=false;
+  }
+ }
+}
+
+
+function Start_Quiz(){// it starts quiz
+
+Ask_Number();
+current=Random_Int(0,question.length-1);
+question_number=1;
+score=0;
+
+document.user_interface.user_question.value=question[current][0];
+document.user_interface.user_answer_A.value=question[current][1];
+document.user_interface.user_answer_B.value=question[current][2];
+document.user_interface.user_answer_C.value=question[current][3];
+
+document.user_feedback.user_question_number.value=question_number;
+document.user_feedback.user_score.value=score;
+}
+
+
+function Next_Question(){
+// it asks the next question, checks if the quiz is over
+
+ question.splice(current,1);
+ yes_answer.slice(current,1);
+
+ if(question[0] == null||question_number==QUIZ_SIZE){
+  var interest=Math.round(100*(score/QUIZ_SIZE));
+  alert("You answered "+score+" out of "+QUIZ_SIZE+" questions correctly ("+interest+"%).");
+ }
+ else{
+  question_number++;
+  current=Random_Int(0,question.length-1);
+
+  document.user_interface.user_question.value=question[current][0];
+  document.user_interface.user_answer_A.value=question[current][1];
+  document.user_interface.user_answer_B.value=question[current][2];
+  document.user_interface.user_answer_C.value=question[current][3];
+
+  document.user_feedback.user_question_number.value=question_number;
+  document.user_feedback.user_score.value=score;
+ }
+}
+
+
+function Handle(answer){// it pops whether the answer is correct, if so, adds to score, atherwise it shows the correct answer
+
+var yes=yes_answer[current];
+
+if(answer==yes_answer[current]){
+  alert("Correct"); score++;
+  }
+ else{
+  alert("You guessed "+question[current][answer]+"\n"+"Correct: "+question[current][yes]);
+  }
+Next_Question();
+}
+
+
+</script>
+
+<body onload="Start_Quiz();">
+
+<form name="user_interface">
+
+<h2>
+<textarea rows="1" cols="50" name="user_question" wrap="virtual" onfocus="this.blur()"> </textarea>
+</h2>
+
+<br/>
+
+<textarea rows="1" cols="50" name="user_answer_A" wrap="virtual" onfocus="this.blur()"> </textarea> 
+&nbsp;
+<input  type="button" value="A." onclick="Handle(1)">
+
+<br/>
+
+<textarea rows="1" cols="50" name="user_answer_B" wrap="virtual" onfocus="this.blur()"> </textarea> 
+&nbsp;
+<input  type="button" value="B." onclick="Handle(2)">
+
+</br>
+
+<textarea rows="1" cols="50" name="user_answer_C" wrap="virtual" onfocus="this.blur()"> </textarea>
+&nbsp;
+<input  type="button" value="C." onclick="Handle(3)">
+
+</form>
+
+</br>
+
+<form name="user_feedback">
+
+Question Number:  <input type="text" name="user_question_number" value="" size="2" onfocus="this.blur()" ;=""> 
+&nbsp; 
+Correct Answers :  <input type="text" name="user_score" value="" size="2" onfocus="this.blur()" ;="">
+
+</form>
+
+
+</body>
+
+</html>

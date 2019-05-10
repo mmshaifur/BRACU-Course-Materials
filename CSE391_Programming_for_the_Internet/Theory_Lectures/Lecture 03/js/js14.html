@@ -1,0 +1,23 @@
+<html>
+<!--   js14.html  16.08.2006 -->
+
+<head>
+  <title>Dynamic Style Page</title>
+
+  <script type="text/javascript">
+    if (navigator.appName == "Netscape") {
+      document.write('<link rel=stylesheet '+ 
+        'type="text/css" href="Netscape.css">');
+    }
+    else {
+      document.write('<link rel=stylesheet ' +
+        'type="text/css" href="MSIE.css">');
+    }
+  </script>
+</head>
+
+<body>
+Here is some text with a 
+<a href="javascript:alert('GO AWAY')">link</a>.
+</body>
+</html>

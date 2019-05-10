@@ -1,0 +1,33 @@
+<html>
+ <!--    form15.html   13.10.2006 -->
+ 
+ <head>
+  <title> Using checkboxes </title>
+
+   <script type="text/javascript">
+     function processCB()
+       {
+          var boxes = document.BoxForm.cb.length;
+          var s="";
+          for (var i = 0; i < boxes; i++)
+              {
+                 if (document.BoxForm.cb[i].checked)
+                    { s = s + document.BoxForm.cb[i].value + " "; }
+              }
+          if (s == "")  {  s = "nothing";  }
+          alert("You selected " + s);
+       }
+   </script>
+
+ </head>
+
+ <body>
+  <form name="BoxForm">
+    Which of these things is unavoidable in life (select one or more):<br/><br/>
+      &nbsp; <input type="checkbox" name="cb" value="Death">Death</input><br/>
+      &nbsp; <input type="checkbox" name="cb" value="Taxes">Taxes</input><br/>
+      &nbsp; <input type="checkbox" name="cb" value="Robbie Williams">Robbie Williams</input><br/>
+      <br/> <input type="button" value="Done" onclick="processCB()"/> 
+  </form>
+ </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+
+<script type="text/javascript">
+function convert(degree)
+{
+if (degree=="C")
+{
+F=document.myform.celsius.value * 9 / 5 + 32
+document.myform.fahrenheit.value=(F)
+}
+else 
+{
+C=(document.myform.fahrenheit.value -32) * 5 / 9
+document.myform.celsius.value=(C)
+}
+}
+</script>
+
+</head>
+<body>
+
+<p><b>My first converter. Insert a number in either input field, 
+and the number will be converted into
+either Celsius or Fahrenheit.</b>
+</p>
+<form name="myform">
+<input name="celsius" onkeyup="convert('C')" size="20"> degrees Celsius<br />
+equals<br /> 
+<input name="fahrenheit" onkeyup="convert('F')" size="20"> degrees Fahrenheit 
+</form>
+
+</body>
+</html>

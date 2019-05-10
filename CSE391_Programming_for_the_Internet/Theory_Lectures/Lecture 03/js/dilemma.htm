@@ -1,0 +1,127 @@
+<html>
+<head>
+<title> Prisoner's Dilemma</title>
+<style type="text/css">
+  input {font-family : Courier, Monospace}
+</style>
+
+<script language="JavaScript" src="random.js"></script>
+<script language="JavaScript" src="strategies.js"></script>
+
+<script language="JavaScript">
+
+  function repeatDilemma(numReps, strategy1, strategy2)
+  // Given  : numReps >= 0, strategy1 and strategy2 are functions for playing the
+  //          Prisoner's Dilemma (take histories as arguments, return "C" or "D")
+  // Results: simulates repeated Prisoner's Dilemma (50 rounds) and shows results
+  {
+    var score1, score2, history1, history2, choice1, choice2, i;
+   
+    history1 = document.PDForm.history1.value;          // get histories from form
+    history2 = document.PDForm.history2.value;
+
+    score1 = parseFloat(document.PDForm.score1.value);  // get scores from form 
+    score2 = parseFloat(document.PDForm.score2.value);
+
+    for (i=1; i <= numReps; i=i+1) {                    // for each round:
+        choice1 = strategy1(history1, history2);        //   get each strategy's choice
+        choice2 = strategy2(history2, history1);
+
+        if (choice1 == "C" && choice2 == "C") {         //   update scores accordingly
+            score1 = score1 + 3;
+            score2 = score2 + 3;
+        }
+        else if (choice1 == "D" && choice2 == "D") {
+            score1 = score1 + 1;
+            score2 = score2 + 1;
+        }
+        else if (choice1 == "C" && choice2 == "D") {
+            score2 = score2 + 5;
+        }
+        else if (choice1 == "D" && choice2 == "C") {
+            score1 = score1 + 5;
+        }
+        else {
+            alert("ERROR -- illegal response!");
+        }
+
+        history1 = history1 + choice1;               // update histories
+        history2 = history2 + choice2;
+
+        document.PDForm.history1.value = history1;   // show histories in form
+        document.PDForm.history2.value = history2;
+
+        document.PDForm.score1.value = score1;       // show scores in form
+        document.PDForm.score2.value = score2;
+    }
+  }
+
+  function resetAll()
+  // Given  : none
+  // Results: resets form elements on the page
+  {
+    document.PDForm.history1.value = "";
+    document.PDForm.history2.value = "";
+    document.PDForm.score1.value = 0;
+    document.PDForm.score2.value = 0;
+  }
+
+</script>
+</head>
+
+<body>
+<center>
+<h2> Prisoner's Dilemma Simulation</h2>
+Select the two strategies to play against each other, then click a button to play. 
+
+<hr>
+
+<form name="PDForm">
+<table>
+<tr> <th> Strategies
+     <th> Histories
+     <th> Scores
+</tr>
+<tr> <td> <select name="strategy1">
+            <option value="coop"> coop
+            <option value="defect"> defect
+            <option value="randomness"> randomness
+            <option value="titForTat"> titForTat
+            <option value="titFor2Tats"> titFor2Tats
+          </select>
+     <td> <input type="text" name="history1" size=50 value="" style="font-family:Courier">
+     <td> <input type="text" name="score1" size=5 value=0 onfocus="this.blur();">
+</tr>
+
+<tr> <td> <select name="strategy2">
+            <option value="coop"> coop
+            <option value="defect"> defect
+            <option value="randomness"> randomness
+            <option value="titForTat"> titForTat
+            <option value="titFor2Tats"> titFor2Tats
+          </select>
+     <td> <input type="text" name="history2" size=50 value="" style="font-family:Courier">
+     <td> <input type="text" name="score2" size=5 value=0 onfocus="this.blur();">
+</tr>
+</table>
+
+<br>
+<hr>
+
+<input type="button" value="Click for next round" 
+       onclick="repeatDilemma(1,                            
+        eval(document.PDForm.strategy1.options[document.PDForm.strategy1.selectedIndex].value),
+        eval(document.PDForm.strategy2.options[document.PDForm.strategy2.selectedIndex].value));"> 
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value="Click for complete simulation" 
+       onclick="repeatDilemma(50-document.PDForm.history1.value.length,
+        eval(document.PDForm.strategy1.options[document.PDForm.strategy1.selectedIndex].value),
+        eval(document.PDForm.strategy2.options[document.PDForm.strategy2.selectedIndex].value));"> 
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value="Reset" onclick="resetAll();">
+</center>
+</form>
+
+
+</body>
+</html>

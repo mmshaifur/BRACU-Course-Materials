@@ -1,0 +1,43 @@
+<html> 
+<!--    form10.html   12.10.2006 -->
+ <head>  <title> Fun with Textareas </title>
+  <script type="text/javascript"  
+      src="verify.js"> 
+  </script> 
+  <script type="text/javascript">
+    function Table(low, high, power)
+    {// Results: displays table of numbers between low & high, raised to power
+      var message = "i: i^" + power + "\n-------\n";
+      for (var i = low; i <= high; i++) {
+        message = message + i + ": " + Math.pow(i, power) + "\n"; 
+      }
+      document.AreaForm.Output.value = message;
+    }       
+  </script>
+ </head>
+ <body>
+  <form name="AreaForm">
+    <div style="text-align: center;"> 
+      Show the numbers from <input type="text" name="lowRange" size="4" value="1"
+                                   onchange="VerifyInt(this);" /> 
+      to <input type="text" name="highRange" size="4" value="10" 
+                onchange="VerifyInt(this);" />
+      raised to the power of <input type="text" name="power" size="3" value="2"
+                                    onchange="VerifyInt(this);" />
+      <br /> <br />
+      <input type="button" value="Generate Table" 
+             onclick="Table(parseFloat(document.AreaForm.lowRange.value),
+                            parseFloat(document.AreaForm.highRange.value),
+                            parseFloat(document.AreaForm.power.value));" />
+      <br /> <br />
+      <textarea name="Output" rows="20" cols="15"></textarea>
+    </div>
+  </form>
+ </body>
+</html>
+
+
+
+
+
+

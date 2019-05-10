@@ -1,0 +1,66 @@
+<html>
+<!-- madlib.html                            -->
+<!--                                                 -->
+<!-- Web page that displays a Mad Lib story.         -->
+<!----------------------------------------------------->
+
+<head>
+  <title> Story Input </title>
+  
+  <script type="text/javascript">
+    function ShowStory()
+    {
+      adjective = document.StoryForm.adjective.value;
+      boy = document.StoryForm.boy.value;
+      color = document.StoryForm.color.value;
+      animal = document.StoryForm.animal.value;
+      swear = document.StoryForm.swear.value;
+      building = document.StoryForm.building.value;
+
+      parent.Output.document.open();
+      parent.Output.document.write("<h1 style=\"text-align:center\">A Typical Day</h1>" +
+                     "<h3 style=\"text-align:center\">by Dave Reed</h3>" +
+                     "<hr />");
+                     
+      parent.Output.document.write("<p>It was a " + adjective + " kind of day when " + boy +
+                   " walked out into the street.  The sky was a deep " + color +
+                   " and " + boy + " was walking his pet " + animal + ".</p>");
+      parent.Output.document.write("<p>'" + swear +"' exclaimed " + boy + " as he stepped off" +
+                   " the curb and into a large pile of " + animal + " excrement." +
+                   "  'I think I'll just go find a nice " + building + 
+                   ", crawl in," + " and go back to sleep.'</p>");
+      parent.Output.document.close();
+    }
+  </script>
+</head>
+
+<body>
+ <div style="text-align:center">
+ <h2>Dave's Fill-in-the-Blank Story</h2>
+ 
+ <u>Enter your words in the text boxes, then click on the button to view the story.</u>
+ 
+ <form name="StoryForm">
+   <table>
+     <tr><td align="right">Enter an adjective: 
+         <td><input type="text" name="adjective" size=12 value="smarmy" />
+         <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <td align="right">Enter a boy's name:
+         <td><input type="text" name="boy" size=12 value="Chris" />
+     <tr><td align="right">Enter a color:
+         <td><input type="text" name="color" size=12 value="mauve" />
+         <td>
+         <td align="right">Enter a type of animal:
+         <td><input type="text" name="animal" size=12 value="gnu" />
+     <tr><td align="right">Enter a swear word or exclamation:
+         <td><input type="text" name="swear" size=12 value="Dagnabit" />
+         <td>
+         <td align="right">Enter a type of building:
+         <td><input type="text" name="building" size=12 value="teepee" />
+   </table>
+   <p>
+     <input type="button" value="Click for Story" onClick="ShowStory();">
+  </form>
+
+</body>
+</html>

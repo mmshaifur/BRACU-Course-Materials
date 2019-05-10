@@ -1,0 +1,68 @@
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main;}
+.item5 { grid-area: left; }
+.item6 {grid-area: footer;}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header '
+    'menu menu left main main main '
+    'footer footer footer footer footer footer ';
+  grid-gap: 5px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px 0;
+}
+
+#menu{
+	font-size:15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px;
+	padding-bottom:5px;
+	padding-top:5px;
+	border: 1px solid black;
+    border-radius: 10px;	
+}
+#page-header{
+	text-align:center;
+	font-size:25px;
+}
+#detail{
+	padding-left: 10px;
+	font-size:18px;
+	font-style:justify;
+}
+
+#photo {
+	padding:10px;
+}
+#personal-info{
+	padding-top:20px;
+	
+}
+
+a:link{
+	text-decoration: none;
+} 
+a:hover{
+	font-size: 18px;
+} a:visited{
+	background-color:lightgray;
+}
+h3{ padding-top:10px; text-align:center;}
+
+#footer{
+	text-align: center;
+	color:black;
+}
+
+#table, th, td {
+    border: 1px solid black;
+	text-align: center;
+}

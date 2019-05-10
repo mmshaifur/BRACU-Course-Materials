@@ -1,0 +1,39 @@
+<html> 
+<!--   form12.html   13.10.2006 -->
+ 
+ <head> <title>Fun with Frames</title>
+  <script type="text/javascript"   
+          src="verify.js"> 
+  </script>
+  <script type="text/javascript">
+      function Table(low, high, power)
+      {
+        parent.Output.document.open();
+        parent.Output.document.write("<table border=1><tr><th>i</th>" +
+                                     "<th>i<sup>" + power + "</sup></th></tr>");
+        for (var i = low; i <= high; i++) {
+            parent.Output.document.write("<tr><td align='right'>" + i + "</td>" +
+                   "<td align='right'>" + Math.pow(i, power) + "</td></tr>");
+        }
+        parent.Output.document.write("</table>");
+        parent.Output.document.close();
+      }       
+  </script>
+ </head>
+
+ <body>
+  <form name="ButtonForm">
+    <div style="text-align: center;">
+      Show the numbers from <input type="text" name="lowRange" size="4" value="1" 
+                                   onchange="VerifyInt(this);" /> 
+      to <input type="text" name="highRange" size="4" value="10" 
+                onchange="VerifyInt(this);" />
+      raised to the power of <input type="text" name="power" size="3" value="2" 
+                                    onchange="VerifyInt(this);" />
+      <br/><br/>
+       <input type="button" value="Generate Table" 
+       onclick="Table(parseFloat(document.ButtonForm.lowRange.value),parseFloat(document.ButtonForm.highRange.value),parseFloat(document.ButtonForm.power.value));" />
+    </div>
+  </form>
+ </body>
+</html>

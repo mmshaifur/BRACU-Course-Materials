@@ -1,0 +1,65 @@
+<html>
+<!--       randSeq.html     14.09.2005 --> 
+<!--                                          -->
+<!-- This page generates random sequences of  -->
+<!-- letters.  The number of sequences and    -->
+<!-- their length is specified in text boxes. -->
+<!---------------------------------------------->
+
+<head>
+<title> Random Letter Sequence Generator </title>
+<style type="text/css">
+  input {font-family : Courier, Monospace}
+</style>
+
+<script language="JavaScript" src="random.js"></script>
+
+<script language="JavaScript">
+  function generateRandSeq(len, letters)
+  // Assumes: len >= 0
+  // Returns: random sequence of letters, length len
+  {
+      var i, seq = "";
+      for (i = 1; i <= len; i = i + 1) {
+          seq += RandomChar(letters);
+      }
+      return seq;
+  }
+</script>
+</head>
+
+<body>
+<center>
+<h2>Random Letter Sequence Generator</h2>
+
+<hr>
+
+<form name="generator">
+<table>
+<tr>
+  <td>Number of random letter sequences to generate:
+  <td><input type="text" name="numSeq" size=4 value=1>
+<tr>
+  <td>Length of each random letter sequence:
+  <td><input type="text" name="lenSeq" size=2 value=3>
+<tr>
+  <td>Letters to choose from:
+  <td><input type="text" name="letters" size=26 value="abcdefghijklmnopqrstuvwxyz">
+</table>
+
+<p>
+<input type="button" value="Click to generate letter sequences"
+       onclick="document.generator.output.value = '';
+                for(i=1;i<=document.generator.numSeq.value;i=i+1) {
+                  document.generator.output.value += 
+                        generateRandSeq(document.generator.lenSeq.value,
+                                        document.generator.letters.value) + ' ';
+                };">
+
+<p>
+<textarea name="output" rows=10 cols=40 wrap value=""></textarea>
+</form>
+</center>
+
+</body>
+</html>

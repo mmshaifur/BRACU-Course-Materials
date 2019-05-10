@@ -1,0 +1,25 @@
+<html>
+ <!--   form01.html  12.10.2006 -->
+
+ <head>
+  <title>Hello/Goodbye page</title>
+
+  <script type="text/javascript">
+     function Hello()
+     {
+       globalName=prompt("Welcome to my page. " +
+                         "What is your name?","");
+     }
+
+     function Goodbye()
+     {
+       alert("So long, " + globalName +
+             " come back real soon.");
+     }
+  </script>
+ </head>
+
+ <body onload="Hello();" onunload="Goodbye();">
+    Whatever text appears in the page.
+ </body>
+</html>

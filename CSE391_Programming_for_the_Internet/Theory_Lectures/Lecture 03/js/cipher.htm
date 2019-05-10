@@ -1,0 +1,67 @@
+<html>
+<!--            cipher.html          14.09.05 -->
+<!-- This page encodes/decodes messages using a simple  -->
+<!-- substitution cipher (with key entered by the user) -->
+<!-------------------------------------------------------->
+
+<head>
+  <title> Substitution Cipher</title>
+
+  <style type="text/css">
+    input {font-family : Courier, Monospace}
+  </style>
+
+  <script LANGUAGE="JavaScript">
+    function Encode(message, key)
+    // Given  : message is the string to be encoded, and
+    //          key is a string of the 26 letters in arbitrary order
+    // Returns: the coded version of message using the substitution key 
+    {
+        var alphabet, coded, i, ch, index;
+
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        coded = "";                                      
+        for (i=0; i < message.length; i=i+1) {      // for as many letters as there are
+            ch = message.charAt(i);                 //   access each letter in message
+            index = alphabet.indexOf(ch);           //   find its position in alphabet
+            if (index == -1) {                      //   if it's not a capital letter,
+                coded = coded + ch;                 //     then leave it as is & add
+            }                                       //   otherwise,
+            else {                                  //     find the corresponding
+                coded = coded + key.charAt(index);  //     letter in the key & add
+            }
+        }
+        return coded;
+    }
+  </script>
+</head>
+
+<body>
+  <form name="CodeForm">
+    <table>
+    <tr><td>According to the substitution cipher, each letter: <BR><BR> </td>
+        <td>&nbsp;<TT>ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR></TT>
+             &nbsp;<TT>| | | | | | | | | | | | | <BR></TT>
+             &nbsp;<TT>v v v v v v v v v v v v v </TT> </td>
+    </tr>
+    <tr><td>is encoded using the corresponding letter in the key: </td>
+        <td><input type="text" name="key" SIZE=26
+                 value="XYZABCDEFGHIJKLMNOPQRSTUVW"> </td>
+    </tr>
+    </table>
+
+    <HR>
+
+    <table>
+    <tr><td><textarea name="message" rows=8 cols=30 wrap="virtual"></textarea> </td>
+        <td><input type="button" value="Encode ==>" 
+                   onclick="document.CodeForm.encoded.value=
+                              Encode(document.CodeForm.message.value,
+                                     document.CodeForm.key.value);"> </td>
+        <td><textarea name="encoded" rows=8 cols=30 wrap="virtual"></textarea> </td>
+    </tr>
+    </table>
+  </form>
+</body>
+</html>

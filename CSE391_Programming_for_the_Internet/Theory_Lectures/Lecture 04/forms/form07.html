@@ -1,0 +1,22 @@
+<html>
+ <!--    form07.html   16.08.2006 -->
+ 
+ <head>
+  <title> Fun with Text Boxes </title>
+ </head>
+
+ <body>
+   <form name="BoxForm">
+     Enter a number here: 
+     <input type="text" size=12 name="number" value=2 />
+     <br /><br />
+     <input type="button" value="Double" 
+            onClick="document.BoxForm.number.value= 
+                       parseFloat(document.BoxForm.number.value) * 2;" />
+   </form>
+ </body>
+</html>
+
+
+
+

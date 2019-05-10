@@ -1,0 +1,62 @@
+
+<html>
+<!--  fortune.html  05.10.05 -->
+<head>
+  <title>FORUTNE SCRIPT</title>
+
+<script language="JavaScript">
+
+
+
+var SIZE= 12
+var quotes = new Array(SIZE) //Add your quotes below
+quotes[0]="Your talents will be recognized and suitably rewarded.";
+quotes[1]="He who hurries cannot walk with dignity.";
+quotes[2]="Your success in life must be earned with earnest efforts.";
+quotes[3]="You love peace.";
+quotes[4]="A friend asks only for your time and not your money.";
+quotes[5]="You will soon inherit a piece of land.";
+quotes[6]="Your luck is about to change.";
+quotes[7]="Things will soon go your way.";
+quotes[8]="He who stands on toilet is high on pot.";
+quotes[8]="Everybody is ignorant, only on different subjects.";
+quotes[9]="Fortune favors the brave.";
+quotes[10]="There is nothing permanent except change.";
+quotes[11]="You haven't failed until you give up.";
+
+function RandomInt(low, high) 
+// Given   : low <= high  
+//Returns : a random integer in the range [low, high] 
+{ 
+  return Math.floor(Math.random()*(high-low+1)) + low; 
+}  
+
+//it gets a random fortune
+
+function fortune() {
+var Q_number = RandomInt(0,SIZE-1); //Get a number for picking the quote
+document.write(quotes[Q_number]); //Output the quote
+}
+</script>
+
+</head>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<body>
+
+<div align="center">
+<table width="50%" border="1">
+    <tr>
+      <td align="center"><small><i>
+        <script type="text/javascript">
+            fortune();
+        </script>
+      </i></small></td>
+    </tr>
+</table>
+
+</div>
+
+<body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<!--   js04.html  16.08.06 -->
+
+<head>
+  <title>Random Dice Rolls</title>
+</head>
+
+<body>
+
+  <div style="text-align:center">
+    <script type="text/javascript">
+      roll1 = Math.floor(Math.random()*6) + 1;
+      roll2 = Math.floor(Math.random()*6) + 1;
+
+      document.write("<img src='images/die" + 
+                     roll1 + ".gif'/>");
+      document.write("&nbsp;&nbsp;");
+      document.write("<img src='images/die" + 
+                     roll2 + ".gif'/>");
+    </script>
+  </div>
+</body>
+</html>

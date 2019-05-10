@@ -1,0 +1,32 @@
+<html>
+<!--   js15.html  16.08.2006 -->
+
+<head>
+  <title>Dice page</title>
+
+  <script type="text/javascript" 
+         src="Die.js">
+  </script>
+</head>
+
+<body>
+ <script type="text/javascript">
+    die6 = new Die(6);
+    die8 = new Die(8);   
+
+    roll6 = -1;    // dummy value to start loop
+    roll8 = -2;    // dummy value to start loop
+    while (roll6 != roll8) {
+      roll6 = die6.Roll();
+      roll8 = die8.Roll();
+
+      document.write("6-sided: " + roll6 + 
+                     "&nbsp;&nbsp;&nbsp;&nbsp;" +
+                     "8-sided: " + roll8 + "<br />");
+    }
+
+    document.write("<br />Number of rolls: " + 
+                   die6.numRolls);
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+Create the following tables.
+Department table:
++---------+-----------+--------------+
+| dept_id | dept_name | country_name |
++---------+-----------+--------------+
+| 145     | Cutting   | srilanka     |
+| 156     | Sewing    | india        |
+| 191     | Packaging | barma        |
+| 102     | Shipping  | usa          |
+| 104     | Accouting | australia    |    
++---------+-----------+--------------+
+Employers table:
++----------+---------+--------+------------+--------+
+| emp_name | dept_id | salary | manager_id | emp_id |
++----------+---------+--------+------------+--------+
+| Reza     | 145     |   1400 |            | 101    |
+| Kabir    | 156     |   1200 |            | 103    |
+| Sarfraz  | 191     |   5000 |            | 109    |
+| Wahid    | 102     |   7000 | 111        | 111    |
+| Rani     | 156     |   1200 |            | 113    |
++----------+---------+--------+------------+--------+
+Location table:
++--------+------------+--------------+
+| loc_id | country_id | country_name |
++--------+------------+--------------+
+| 11     | SRL        | srilanka     |
+| 19     | IND        | india        |
+| 12     | BAR        | barma        |
+| 100    | US         | usa          |
+| 15     | AUS        | australia    |
+| 17     | PAK        | pakistan     |
++--------+------------+--------------+
+
+Create the above tables and Solve the following queries using subqueries. U may use join if needed:
+
+1.Find all the departments that do have one or more employers assigned to them.
+2.Find the employers name who are manager.
+3. Find the total salary of the employees who are in the sewing and packaging department.
+4.Find the name of employers whose department name start with s.
+5.Find the employee name whose salary is greater than "Rani".
+
+
+

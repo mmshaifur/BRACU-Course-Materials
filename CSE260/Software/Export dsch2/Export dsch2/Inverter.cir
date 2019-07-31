@@ -1,0 +1,22 @@
+* C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\Inverter.sch
+* DSCH 2.6i
+* created 5/9/2003 8:31:30 AM
+*
+* Node list
+* "vdd" is node 1
+VDD 1 0 DC 1.2
+* Input "A" -1
+V1 -1 0 DC 0
+* Input "A" -1
+* Output "nA" -1
+* Input "A" -1
+C1 -1 -1 c1
+V2 -1 0 DC 0
+V3 -1 0 DC 1.2
+MN1 -1 -1 -1 0 TN W=sU L=0.6U
+MP1 -1 -1 -1 1 TP W=sU L=0.6U
+.MODEL TN NMOS LEVEL=2 KP=120E-6 VTO=0.65
+.MODEL TP PMOS LEVEL=2 KP=50E-6 VTO=-0.65
+.TRAN 0.1N 50N
+.PROBE
+.END

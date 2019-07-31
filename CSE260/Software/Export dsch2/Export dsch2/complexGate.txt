@@ -1,0 +1,83 @@
+// DSCH 2.6b
+// 19/07/02 07:55:53
+// C:\Dsch2\Book on CMOS\complexGate.sch
+// 2 Mos
+// 4 mos
+// 2 Mos
+// 4 Mos
+// 4 Mos
+// 2 Mos
+// 4 mos
+// 2 Mos
+// A
+// A
+// C
+// C
+// B
+// B
+// A
+// C
+// B
+// C
+// B
+// A
+
+module complexGate( A,B,C,A,C,A,C,B,
+ A,C,B,A,C,B,B,C,
+ A,B,(A&B)|C,A&(B|C),(A&B)|C,A&(B|C),(A&B)|C,(A&B)|C,
+ A&(B|C),A&(B|C));
+ input A,B,C,A,C,A,C,B;
+ input A,C,B,A,C,B,B,C;
+ input A,B;
+ output (A&B)|C,A&(B|C),(A&B)|C,A&(B|C),(A&B)|C,(A&B)|C,A&(B|C),A&(B|C);
+ not #(10) inv((A&B)|C,w7);
+ nor #(16) nor2(w7,w9,C);
+ not #(10) inv(w9,w11);
+ nand #(16) nand2(w11,B,A);
+ not #(10) inv(w15,w14);
+ nor #(16) nor2(w14,B,C);
+ or #(16) or2((A&B)|C,w20,C);
+ or #(16) or2(w22,B,C);
+ and #(16) and2(w20,B,A);
+s=(a&b)|c;
+ not #(10) inv(A&(B|C),w26);
+ and #(16) and2(A&(B|C),w22,A);
+s=a&(b|c);
+ pmos #(17) pmos(w34,vdd,w33); // 2.0u 0.12u
+ nand #(16) nand2(w26,w15,A);
+ pmos #(31) pmos(w37,w34,w36); // 2.0u 0.12u
+ pmos #(17) pmos(w34,vdd,w38); // 2.0u 0.12u
+ pmos #(17) pmos((A&B)|C,vdd,w37); // 2.0u 0.12u
+ nmos #(31) nmos(w37,vss,w39); // 1.0u 0.12u
+ nmos #(17) nmos((A&B)|C,vss,w37); // 1.0u 0.12u
+ nmos #(31) nmos(w37,w40,w41); // 1.0u 0.12u
+ nmos #(10) nmos(w40,vss,w42); // 1.0u 0.12u
+ nmos #(17) nmos(w45,vss,w44); // 1.0u 0.12u
+ nmos #(38) nmos(w47,w45,w46); // 1.0u 0.12u
+ nmos #(17) nmos(A&(B|C),vss,w47); // 1.0u 0.12u
+ nmos #(38) nmos(w47,w45,w48); // 1.0u 0.12u
+ pmos #(17) pmos(A&(B|C),vdd,w47); // 2.0u 0.12u
+ pmos #(10) pmos(w50,vdd,w49); // 2.0u 0.12u
+ pmos #(38) pmos(w47,w50,w51); // 2.0u 0.12u
+ pmos #(38) pmos(w47,vdd,w52); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20
+// C CLK 30 30
+// A CLK 40 40
+// C CLK 50 50
+// A CLK 60 60
+// C CLK 70 70
+// B CLK 80 80
+// A CLK 90 90
+// C CLK 100 100
+// B CLK 110 110
+// A CLK 120 120
+// C CLK 130 130
+// B CLK 140 140
+// B CLK 150 150
+// C CLK 160 160
+// A CLK 170 170
+// B CLK 180 180

@@ -1,0 +1,52 @@
+// DSCH 2.6b
+// 28/07/02 00:38:03
+// C:\Dsch2\Book on CMOS\Mux8to1Nmos.sch
+
+module Mux8to1Nmos( in0,in7,in5,in4,in3,in2,in1,Sel0,
+ Sel1,Sel2,Sel3,in6,f);
+ input in0,in7,in5,in4,in3,in2,in1,Sel0;
+ input Sel1,Sel2,Sel3,in6;
+ output f;
+ nmos #(17) nmos(w14,in3,Sel0); // 1.0u 0.12u
+ nmos #(17) nmos(f,w15,w16); // 1.0u 0.12u
+ nmos #(17) nmos(w18,in6,w17); // 1.0u 0.12u
+ nmos #(17) nmos(w15,w14,Sel1); // 1.0u 0.12u
+ nmos #(17) nmos(w21,w19,w20); // 1.0u 0.12u
+ nmos #(17) nmos(w15,w22,w20); // 1.0u 0.12u
+ not #(17) inv(w20,Sel1);
+ nmos #(17) nmos(f,w21,Sel2); // 1.0u 0.12u
+ nmos #(17) nmos(w18,in7,Sel0); // 1.0u 0.12u
+ nmos #(17) nmos(w22,in1,Sel0); // 1.0u 0.12u
+ not #(31) inv(w17,Sel0);
+ nmos #(17) nmos(w19,in5,Sel0); // 1.0u 0.12u
+ nmos #(17) nmos(w21,w18,Sel1); // 1.0u 0.12u
+ nmos #(17) nmos(w19,in4,w17); // 1.0u 0.12u
+ nmos #(17) nmos(w22,in0,w17); // 1.0u 0.12u
+ not #(10) inv(w16,Sel2);
+ nmos #(17) nmos(w14,in2,w17); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 in0=~in0;
+#2000 in7=~in7;
+#3000 in5=~in5;
+#4000 in4=~in4;
+#5000 in3=~in3;
+#6000 in2=~in2;
+#7000 in1=~in1;
+#1000 in6=~in6;
+
+// Simulation parameters
+// in0 CLK 10 10
+// in7 CLK 20 20
+// in5 CLK 30 30
+// in4 CLK 40 40
+// in3 CLK 50 50
+// in2 CLK 60 60
+// in1 CLK 70 70
+// Sel0 CLK 80 80
+// Sel1 CLK 90 90
+// Sel2 GND
+// Sel3 GND
+// in6 CLK 10.000 10.000

@@ -1,0 +1,32 @@
+* C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\cmosBuff.sch
+* DSCH 2.6i
+* created 5/9/2003 8:55:14 AM
+*
+* Node list
+* "vdd" is node 1
+* "out2" is node 2
+* "buf_out" is node 3
+* "buf_in" is node 4
+VDD 1 0 DC 1.2
+V1 1 0 DC 1.2
+V2 0 0 DC 0
+MP1 2 1 3 1 TP W=2.0uU L=0.25uU
+MN1 2 0 3 0 TN W=2.0uU L=0.25uU
+* Input "buf_in" 4
+MN2 4 0 2 0 TN W=2.0uU L=0.25uU
+MP2 4 1 2 1 TP W=2.0uU L=0.25uU
+V3 0 0 DC 0
+V4 1 0 DC 1.2
+MN3 2 0 3 0 TN W=2.0uU L=0.25uU
+MN4 2 0 3 0 TN W=2.0uU L=0.25uU
+MN5 2 0 3 0 TN W=2.0uU L=0.25uU
+MP3 2 1 3 1 TP W=2.0uU L=0.25uU
+MP4 2 1 3 1 TP W=2.0uU L=0.25uU
+MP5 2 1 3 1 TP W=2.0uU L=0.25uU
+* Output "buf_out" 3
+* Output "out2" 2
+.MODEL TN NMOS LEVEL=3 KP=120E-6 VTO=0.4
+.MODEL TP PMOS LEVEL=3 KP=50E-6 VTO=-0.4
+.TRAN 0.1N 50N
+.PROBE
+.END

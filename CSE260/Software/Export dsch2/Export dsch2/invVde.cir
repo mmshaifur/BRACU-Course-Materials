@@ -1,0 +1,47 @@
+* C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\invVde.sch
+* DSCH 2.6i
+* created 5/10/2003 9:09:29 PM
+*
+V1 1 0 DC 1.2
+MP1 2 3 4 1 TP W=2u L=1u
+MN1 5 3 4 0 TN W=1.0u L=1u
+* Input clock "clk1" 3
+VCLK1 3 0 DC 0 PULSE(0 1.2 10.00N 0.1N 0.1N 10.00N 21.00N )
+* Output "Vout" 4
+C1 4 0 0.1pF
+R1 6 0 49
+R2 6 0 1
+C2 2 5 100pF
+* Output "Vde" 6
+L1 5 6 1nH
+L2 1 2 1nH
+*
+* Mos models in 0.12µm
+* Model 3 n-channel MOS
+.MODEL  TN  NMOS
++ LEVEL=3            TPG=+1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.1        ETA=0.002
++ DELTA=0.0          UO=620             VMAX=100E3       VTO=0.35
++ TOX=3e-9           XJ=0.1U            LD=0.00U         NSUB=1E+18
++ NSS=0.2            NFS=7E11
++ CJ=4.091E-4        MJ=0.307           PB=1.0
++ CJSW=3.078E-10     MJSW=1.0E-2
++ CGSO=3.93E-10      CGDO=3.93E-10
+* Model 3 p-channel MOS
+.MODEL  TP  PMOS
++ LEVEL=3            TPG=-1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.01         ETA=0.001
++ DELTA=0.0          UO=250             VMAX=500E3         VTO=-0.35
++ TOX=3E-9          XJ=0.1U             LD=0.0U             NSUB=1E+18
++ NSS=0.0            NFS=7E11
++ CJ=6.852E-4        MJ=0.429           PB=1.0
++ CJSW=5.217E-10     MJSW=0.351
++ CGSO=7.29E-10      CGDO=7.29E-10
+.TRAN 0.1N 50N
+* Commands for WinSpice3
+*#set nobreak
+*#print  V(6)  > out.txt
+*#run
+*#plot  V(6) 
+.OPTIONS DELMIN=0 RELTOL=1E-6
+.END

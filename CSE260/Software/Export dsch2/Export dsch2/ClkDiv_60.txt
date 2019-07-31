@@ -1,0 +1,61 @@
+// DSCH 2.6i
+// 4/28/2003 11:02:02 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\ClkDiv_60.sch
+
+module ClkDiv_60( Clock,Reset,Enable,~Clear,Equ59,Sec93,Sec92,Sec91,
+ Sec90,Sec52,Sec51,Sec50);
+ input Clock,Reset,Enable,~Clear;
+ output Equ59,Sec93,Sec92,Sec91,Sec90,Sec52,Sec51,Sec50;
+ wire w16,w17,w18,w19,w20,w21,w22,w23;
+ wire w24,w25,w26,w27,w28,w29,w30,w31;
+ wire w32,w33,w34,w35,w36,w37,w38,w39;
+ wire w40,w41,w42,w43,w44,w45,w46,w47;
+ and #(16) and2(Equ59,w2,w8);
+ and #(36) and2_Cl1(w17,~Clear,w16);
+ not #(12) inv_Cl2(w8,w16);
+ nand #(24) nand3_Cl3(w16,Sec52,Sec50,w2);
+ xor #(15) xor2_Cl1_Cl4(w19,Sec52,w18);
+ and #(4) and2_Cl2_Cl5(w20,Sec52,w18);
+ dreg #(3) dreg1_Cl3_Cl6(Sec52,w22,w21,Reset,Clock);
+ and #(15) and2_Cl4_Cl7(w21,w17,w19);
+ xor #(15) xor2_Cl5_Cl8(w23,Sec50,w2);
+ and #(25) and2_Cl6_Cl9(w24,Sec50,w2);
+ dreg #(3) dreg1_Cl7_Cl10(Sec50,w26,w25,Reset,Clock);
+ and #(15) and2_Cl8_Cl11(w25,w17,w23);
+ xor #(15) xor2_Cl9_Cl12(w27,Sec51,w24);
+ and #(25) and2_Cl10_Cl13(w18,Sec51,w24);
+ dreg #(3) dreg1_Cl11_Cl14(Sec51,w29,w28,Reset,Clock);
+ and #(15) and2_Cl12_Cl15(w28,w17,w27);
+ and #(47) and2_Cl16(w31,~Clear,w30);
+ not #(33) inv_Cl17(w2,w30);
+ nand #(24) nand3_Cl18(w30,Sec93,Sec90,Enable);
+ xor #(15) xor2_Cl1_Cl19(w33,Sec92,w32);
+ and #(25) and2_Cl2_Cl20(w34,Sec92,w32);
+ dreg #(3) dreg1_Cl3_Cl21(Sec92,w36,w35,Reset,Clock);
+ and #(15) and2_Cl4_Cl22(w35,w31,w33);
+ xor #(15) xor2_Cl5_Cl23(w37,Sec93,w34);
+ and #(4) and2_Cl6_Cl24(w38,Sec93,w34);
+ dreg #(3) dreg1_Cl7_Cl25(Sec93,w40,w39,Reset,Clock);
+ and #(15) and2_Cl8_Cl26(w39,w31,w37);
+ xor #(15) xor2_Cl9_Cl27(w42,Sec91,w41);
+ and #(25) and2_Cl10_Cl28(w32,Sec91,w41);
+ dreg #(3) dreg1_Cl11_Cl29(Sec91,w44,w43,Reset,Clock);
+ and #(15) and2_Cl12_Cl30(w43,w31,w42);
+ xor #(15) xor2_Cl13_Cl31(w45,Sec90,Enable);
+ and #(25) and2_Cl14_Cl32(w41,Sec90,Enable);
+ dreg #(3) dreg1_Cl15_Cl33(Sec90,w47,w46,Reset,Clock);
+ and #(15) and2_Cl16_Cl34(w46,w31,w45);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#200 Clock=~Clock;
+#1000 Reset=~Reset;
+#2000 Enable=~Enable;
+#4000 ~Clear=~~Clear;
+
+// Simulation parameters
+// Clock CLK 2.000 2.000
+// Reset CLK 10 10
+// Enable CLK 20 20
+// ~Clear CLK 40 40

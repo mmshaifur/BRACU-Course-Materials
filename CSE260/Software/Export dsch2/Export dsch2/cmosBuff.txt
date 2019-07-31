@@ -1,0 +1,23 @@
+// DSCH 2.6b
+// 29/07/02 17:33:29
+// C:\Dsch2\Book on CMOS\cmosBuff.sch
+
+module cmosBuff( buf_in,buf_out,out2);
+ input buf_in;
+ output buf_out,out2;
+ pmos #(156) pmos(buf_out,vdd,out2); // 2.0u 0.12u
+ nmos #(156) nmos(buf_out,vss,out2); // 1.0u 0.12u
+ nmos #(170) nmos(out2,vss,buf_in); // 1.0u 0.12u
+ pmos #(170) pmos(out2,vdd,buf_in); // 2.0u 0.12u
+ nmos #(156) nmos(buf_out,vss,out2); // 1.0u 0.12u
+ nmos #(156) nmos(buf_out,vss,out2); // 1.0u 0.12u
+ nmos #(156) nmos(buf_out,vss,out2); // 1.0u 0.12u
+ pmos #(156) pmos(buf_out,vdd,out2); // 2.0u 0.12u
+ pmos #(156) pmos(buf_out,vdd,out2); // 2.0u 0.12u
+ pmos #(156) pmos(buf_out,vdd,out2); // 2.0u 0.12u
+endmodule
+
+always
+# 1000 buf_in=~buf_in;
+// Simulation parameters
+// buf_in CLK 10 10

@@ -1,0 +1,36 @@
+DSCH 2.7a
+VERSION 8/10/2004 4:11:39 PM
+BB(0,0,40,40)
+SYM  #sym9
+BB(0,0,40,40)
+TITLE 10 -2  #sym9
+MODEL 6000
+PROP                                                                                                                                                                                                           
+REC(5,5,30,30,r)
+VIS 5
+PIN(0,30,0.000,0.000)A
+PIN(0,20,0.000,0.000)B
+PIN(0,10,0.000,0.000)C
+PIN(40,10,2.000,0.200)S
+PIN(40,20,2.000,0.800)Co
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(35,10,40,10)
+LIG(35,20,40,20)
+LIG(5,5,5,35)
+LIG(5,5,35,5)
+LIG(35,5,35,35)
+LIG(35,35,5,35)
+VLG module sym9( A,B,Co,S,C);
+VLG  input A,B,Co;
+VLG  output S,Co;
+VLG  xor #(11) xor2(w3,A,B);
+VLG  xor #(11) xor2(S,w3,Co);
+VLG  and #(11) and2(w6,B,A);
+VLG  and #(11) and2(w7,Co,B);
+VLG  and #(11) and2(w8,A,Co);
+VLG  or #(14) or3(Co,w6,w7,w8);
+VLG endmodule
+FSYM
+FFIG C:\Documents and Settings\All Users\Documents\Softwares\VLSI Softwares\Export dsch2\sym9.sym

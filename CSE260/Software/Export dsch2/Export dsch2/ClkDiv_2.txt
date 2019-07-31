@@ -1,0 +1,33 @@
+// DSCH 2.6i
+// 4/28/2003 10:52:28 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\ClkDiv_2.sch
+
+module ClkDiv_2( Enable,Reset,Clock,~Clear,Disp21,Disp20,Equ2);
+ input Enable,Reset,Clock,~Clear;
+ output Disp21,Disp20,Equ2;
+ wire w14,w15,w16,w17,w18,w19;
+ and #(23) and2(w5,~Clear,w4);
+ not #(10) inv(Equ2,w4);
+ nand #(20) nand2(w4,Enable,Disp21);
+ xor #(15) xor2_Cl1(w14,Disp21,w6);
+ and #(8) and2_Cl2(w9,Disp21,w6);
+ dreg #(6) dreg1_Cl3(Disp21,w16,w15,Reset,Clock);
+ and #(15) and2_Cl4(w15,w5,w14);
+ xor #(15) xor2_Cl5(w17,Disp20,Enable);
+ and #(22) and2_Cl6(w6,Disp20,Enable);
+ dreg #(6) dreg1_Cl7(Disp20,w19,w18,Reset,Clock);
+ and #(15) and2_Cl8(w18,w5,w17);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Enable=~Enable;
+#2000 Reset=~Reset;
+#1000 Clock=~Clock;
+#4000 ~Clear=~~Clear;
+
+// Simulation parameters
+// Enable CLK 10 10
+// Reset CLK 20 20
+// Clock CLK 10.000 10.000
+// ~Clear CLK 40 40

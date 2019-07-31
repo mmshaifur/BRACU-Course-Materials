@@ -1,0 +1,25 @@
+// DSCH 2.7a
+// 8/10/2004 6:55:50 PM
+// C:\Documents and Settings\All Users\Documents\Softwares\VLSI Softwares\Export dsch2\adderjar.sch
+
+module adderjar( A,B,C,S,Cout);
+ input A,B,C;
+ output S,Cout;
+ xor #(16) xor2(w3,A,B);
+ xor #(16) xor2(S,w3,C);
+ or #(19) or3(Cout,w6,w7,w8);
+ and #(16) and2(w6,B,A);
+ and #(16) and2(w7,C,B);
+ and #(16) and2(w8,A,C);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 B=~B;
+#4000 C=~C;
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20
+// C CLK 40 40

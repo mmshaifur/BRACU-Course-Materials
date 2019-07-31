@@ -1,0 +1,34 @@
+USER SYMBOL by DSCH 2.7a
+DATE 15/06/2009 18:05:36
+SYM  #Xor_mod
+BB(0,0,20,30)
+TITLE 10 -2  #Xor_mod
+MODEL 6000
+REC(5,5,10,20)
+PIN(0,10,0.00,0.00)in1
+PIN(0,20,0.00,0.00)in2
+PIN(20,10,2.00,1.00)out1
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(15,10,20,10)
+LIG(5,5,5,25)
+LIG(5,5,15,5)
+LIG(15,5,15,25)
+LIG(15,25,5,25)
+VLG module Xor_mod( in1,in2,out1);
+VLG  input in1,in2;
+VLG  output out1;
+VLG  nmos #(24) nmos(w2,vss,in1); // 1.0u 0.12u
+VLG  nmos #(24) nmos(w2,vss,w3); // 1.0u 0.12u
+VLG  nmos #(31) nmos(out1,w2,w4); // 1.0u 0.12u
+VLG  nmos #(31) nmos(out1,w2,in2); // 1.0u 0.12u
+VLG  pmos #(10) pmos(w7,vdd,in2); // 2.0u 0.12u
+VLG  pmos #(31) pmos(out1,w7,w4); // 2.0u 0.12u
+VLG  pmos #(31) pmos(out1,w8,in1); // 2.0u 0.12u
+VLG  pmos #(10) pmos(w8,vdd,w3); // 2.0u 0.12u
+VLG  nmos #(30) nmos_In1(w4,vss,in1); //  
+VLG  pmos #(30) pmos_In2(w4,vdd,in1); //  
+VLG  nmos #(30) nmos_In3(w3,vss,in2); //  
+VLG  pmos #(30) pmos_In4(w3,vdd,in2); //  
+VLG endmodule
+FSYM

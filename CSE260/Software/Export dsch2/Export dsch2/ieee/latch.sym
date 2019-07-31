@@ -1,0 +1,28 @@
+USER SYMBOL by DSCH 2.6b
+DATE 08/08/02 11:27:47
+SYM  #Latch
+BB(0,0,40,40)
+TITLE 10 20  #Latch
+MODEL 6000
+REC(5,5,30,30)
+PIN(0,10,0.00,0.00)Data
+PIN(15,40,0.00,0.00)Clock
+PIN(40,20,2.00,1.00)nQ
+PIN(40,10,2.00,1.00)Q
+LIG(0,10,5,10)
+LIG(15,35,15,40)
+LIG(35,20,40,20)
+LIG(35,10,40,10)
+LIG(5,5,5,35)
+LIG(5,5,35,5)
+LIG(35,5,35,35)
+LIG(35,35,5,35)
+VLG module Latch( Data,Clock,nQ,Q);
+VLG  input Data,Clock;
+VLG  output nQ,Q;
+VLG  nmos nmos(w4,Data,Clock);
+VLG  not inv(nQ,w4);
+VLG  not inv(Q,nQ);
+VLG  pmos pmos(w4,Q,Clock); 
+VLG endmodule
+FSYM

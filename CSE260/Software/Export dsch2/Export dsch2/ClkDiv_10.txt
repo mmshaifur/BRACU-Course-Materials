@@ -1,0 +1,43 @@
+// DSCH 2.6i
+// 4/28/2003 10:32:39 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\ClkDiv_10.sch
+
+module ClkDiv_10( Enable,Reset,Clock,~Clear,Sup93,Sup92,Sup91,Sup90,
+ Sup9);
+ input Enable,Reset,Clock,~Clear;
+ output Sup93,Sup92,Sup91,Sup90,Sup9;
+ wire w16,w17,w18,w19,w20,w21,w22,w23;
+ wire w24,w25,w26,w27;
+ and #(37) and2(w5,~Clear,w4);
+ not #(10) inv(Sup9,w4);
+ nand #(20) nand3(w4,Sup93,Sup90,Enable);
+ xor #(15) xor2_Cl1(w16,Sup92,w6);
+ and #(22) and2_Cl2(w9,Sup92,w6);
+ dreg #(6) dreg1_Cl3(Sup92,w18,w17,Reset,Clock);
+ and #(15) and2_Cl4(w17,w5,w16);
+ xor #(15) xor2_Cl5(w19,Sup93,w9);
+ and #(8) and2_Cl6(w14,Sup93,w9);
+ dreg #(6) dreg1_Cl7(Sup93,w21,w20,Reset,Clock);
+ and #(15) and2_Cl8(w20,w5,w19);
+ xor #(15) xor2_Cl9(w22,Sup91,w15);
+ and #(22) and2_Cl10(w6,Sup91,w15);
+ dreg #(6) dreg1_Cl11(Sup91,w24,w23,Reset,Clock);
+ and #(15) and2_Cl12(w23,w5,w22);
+ xor #(15) xor2_Cl13(w25,Sup90,Enable);
+ and #(22) and2_Cl14(w15,Sup90,Enable);
+ dreg #(6) dreg1_Cl15(Sup90,w27,w26,Reset,Clock);
+ and #(15) and2_Cl16(w26,w5,w25);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Enable=~Enable;
+#2000 Reset=~Reset;
+#1000 Clock=~Clock;
+#4000 ~Clear=~~Clear;
+
+// Simulation parameters
+// Enable CLK 10 10
+// Reset CLK 20 20
+// Clock CLK 10.000 10.000
+// ~Clear CLK 40 40

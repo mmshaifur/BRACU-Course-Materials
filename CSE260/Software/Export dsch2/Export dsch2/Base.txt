@@ -1,0 +1,24 @@
+// DSCH 2.5f
+// 07/07/02 10:00:02
+// C:\Dsch2\Book on CMOS\Base.sch
+
+module Base( Enable,A,B,s_XNOR,s_XOR,s_BUF,s_NOT,s_NOTIF1,
+ s_AND,s_NAND,s_NOR,s_OR);
+ input Enable,A,B;
+ output s_XNOR,s_XOR,s_BUF,s_NOT,s_NOTIF1,s_AND,s_NAND,s_NOR;
+ output s_OR;
+ and #(16) and2(s_AND,A,B);
+ notif1 #(13) notif1(s_NOTIF1,A,Enable);
+ not #(10) inv(s_NOT,A);
+ buf #(13) buf1(s_BUF,A);
+ nand #(10) nand2(s_NAND,A,B);
+ nor #(10) nor2(s_NOR,B,A);
+ or #(16) or2(s_OR,B,A);
+ xor #(16) xor2(s_XOR,B,A);
+ xnor #(16) xnor2(s_XNOR,B,A);
+endmodule
+
+// Simulation parameters
+// Enable CLK 10 10
+// A CLK 20 20
+// B CLK 30 30

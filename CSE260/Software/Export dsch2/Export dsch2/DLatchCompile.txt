@@ -1,0 +1,20 @@
+// DSCH 2.6b
+// 29/07/02 18:08:37
+// C:\Dsch2\Book on CMOS\DLatchCompile.sch
+
+module DLatchCompile( Data,Clock,Q,nQ);
+ input Data,Clock;
+ output Q,nQ;
+ assign      Q=~((w1&Clock)|nQ);
+ assign      nQ=~((Data&Clock)|Q);
+ not inv(w1,Data);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Data=~Data;
+#1000 Clock=~Clock;
+
+// Simulation parameters
+// Data CLK 10.000 10.000
+// Clock CLK 10 10

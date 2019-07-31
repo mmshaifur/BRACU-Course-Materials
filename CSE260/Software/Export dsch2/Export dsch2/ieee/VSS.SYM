@@ -1,0 +1,18 @@
+DSCH2
+SYM #vss
+BB(0,2,10,10)
+TITLE 4 7  #vss
+MODEL 0
+DATE 23.09.1999
+PROP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+REC(0,0,0,0,blue)
+VIS 0
+PIN(5,0,0.000,0)vss
+LIG(5,0,5,5)
+LIG(0,5,10,5)
+LIG(0,8,2,5)
+LIG(2,8,4,5)
+LIG(4,8,6,5)
+LIG(6,8,8,5)
+FSYM
+FSYM

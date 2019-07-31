@@ -1,0 +1,42 @@
+// DSCH 2.6i
+// 4/18/2003 9:37:47 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\Sub10.sch
+
+module Sub10( Z0,Z1,Z2,Z3,ZMinus103,ZMinus102,ZMinus101,ZMinus100);
+ input Z0,Z1,Z2,Z3;
+ output ZMinus103,ZMinus102,ZMinus101,ZMinus100;
+ wire w13,w14,w15,w16,w17,w18,w19,w20;
+ wire w21,w22,w23,w24,w25,w26,w27,w28;
+ xor #(10) xor21_fa1(ZMinus100,w13,vdd);
+ xor #(10) xor22_fa2(w13,Z0,vdd);
+ nand #(10) nand21_fa3(w14,vdd,Z0);
+ nand #(10) nand22_fa4(w15,vdd,vdd);
+ nand #(10) nand23_fa5(w16,Z0,vdd);
+ nand #(24) nand31_fa6(w9,w14,w15,w16);
+ xor #(10) xor21_fa7(ZMinus103,w17,w10);
+ xor #(10) xor22_fa8(w17,Z3,vss);
+ nand #(10) nand21_fa9(w18,vss,Z3);
+ nand #(10) nand22_fa10(w19,vss,w10);
+ nand #(10) nand23_fa11(w20,Z3,w10);
+ nand #(3) nand31_fa12(w11,w18,w19,w20);
+ xor #(10) xor21_fa13(ZMinus102,w21,w12);
+ xor #(10) xor22_fa14(w21,Z2,vdd);
+ nand #(10) nand21_fa15(w22,vdd,Z2);
+ nand #(10) nand22_fa16(w23,vdd,w12);
+ nand #(10) nand23_fa17(w24,Z2,w12);
+ nand #(24) nand31_fa18(w10,w22,w23,w24);
+ xor #(10) xor21_fa19(ZMinus101,w25,w9);
+ xor #(10) xor22_fa20(w25,Z1,vss);
+ nand #(10) nand21_fa21(w26,vss,Z1);
+ nand #(10) nand22_fa22(w27,vss,w9);
+ nand #(10) nand23_fa23(w28,Z1,w9);
+ nand #(24) nand31_fa24(w12,w26,w27,w28);
+endmodule
+
+// Simulation parameters in Verilog Format
+
+// Simulation parameters
+// Z0 CLK 10 10
+// Z1 CLK 20 20
+// Z2 GND
+// Z3 GND

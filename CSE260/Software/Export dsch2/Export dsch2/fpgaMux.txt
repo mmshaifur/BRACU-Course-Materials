@@ -1,0 +1,31 @@
+// DSCH 2.6i
+// 4/28/2003 4:07:39 PM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\fpgaMux.sch
+
+module fpgaMux( A,A,B,B,A,A,NOT_A,BUFF_A,
+ AND,OR);
+ input A,A,B,B,A,A;
+ output NOT_A,BUFF_A,AND,OR;
+ mux #(107) mux(NOT_A,vdd,vss,A);
+ mux #(107) mux(AND,vss,B,A);
+ mux #(107) mux(OR,B,vdd,A);
+ mux #(107) mux(BUFF_A,vss,vdd,A);
+ lut #(9) lut(w14,w11,w12,w13,11001100);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 A=~A;
+#4000 B=~B;
+#8000 B=~B;
+#16000 A=~A;
+#32000 A=~A;
+
+// Simulation parameters
+// A CLK 10 10
+// A CLK 20 20
+// B CLK 40 40
+// B CLK 80 80
+// A CLK 160 160
+// A CLK 320 320

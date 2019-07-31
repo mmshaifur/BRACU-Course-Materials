@@ -1,0 +1,22 @@
+// DSCH 2.6i
+// 4/16/2003 7:50:20 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\Comp.sch
+
+module Comp( B,A,AsB,AeB,AiB);
+ input B,A;
+ output AsB,AeB,AiB;
+ and #(16) and2(AsB,w1,A);
+ and #(16) and2(AiB,w5,B);
+ not #(10) inv(w1,B);
+ not #(10) inv(w5,A);
+ xnor #(16) xnor2(AeB,A,B);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 B=~B;
+#2000 A=~A;
+
+// Simulation parameters
+// B CLK 10 10
+// A CLK 20 20

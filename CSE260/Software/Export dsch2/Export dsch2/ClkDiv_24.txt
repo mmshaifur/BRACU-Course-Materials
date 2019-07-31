@@ -1,0 +1,57 @@
+// DSCH 2.6i
+// 4/28/2003 11:01:32 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\ClkDiv_24.sch
+
+module ClkDiv_24( Clock,Enable,Reset,Equ23,Hour21,Hour20,Hour43,Hour42,
+ Hour41,Hour40);
+ input Clock,Enable,Reset;
+ output Equ23,Hour21,Hour20,Hour43,Hour42,Hour41,Hour40;
+ wire w17,w18,w19,w20,w21,w22,w23,w24;
+ wire w25,w26,w27,w28,w29,w30,w31,w32;
+ wire w33,w34,w35,w36,w37,w38,w39,w40;
+ wire w41,w42,w43,w44;
+ and #(16) and2(w13,Enable,Hour41);
+ nand #(27) nand3(w4,Hour21,Hour40,w13);
+ not #(10) inv(Equ23,w4);
+ and #(26) and2_Cl1(w18,w4,w17);
+ not #(5) inv_Cl2(w7,w17);
+ nand #(24) nand2_Cl3(w17,w1,Hour21);
+ xor #(15) xor2_Cl1_Cl4(w20,Hour21,w19);
+ and #(4) and2_Cl2_Cl5(w21,Hour21,w19);
+ dreg #(3) dreg1_Cl3_Cl6(Hour21,w23,w22,Reset,Clock);
+ and #(15) and2_Cl4_Cl7(w22,w18,w20);
+ xor #(15) xor2_Cl5_Cl8(w24,Hour20,w1);
+ and #(25) and2_Cl6_Cl9(w19,Hour20,w1);
+ dreg #(3) dreg1_Cl7_Cl10(Hour20,w26,w25,Reset,Clock);
+ and #(15) and2_Cl8_Cl11(w25,w18,w24);
+ and #(47) and2_Cl12(w28,w4,w27);
+ not #(26) inv_Cl13(w1,w27);
+ nand #(24) nand3_Cl14(w27,Hour43,Hour40,Enable);
+ xor #(15) xor2_Cl1_Cl15(w30,Hour42,w29);
+ and #(25) and2_Cl2_Cl16(w31,Hour42,w29);
+ dreg #(3) dreg1_Cl3_Cl17(Hour42,w33,w32,Reset,Clock);
+ and #(15) and2_Cl4_Cl18(w32,w28,w30);
+ xor #(15) xor2_Cl5_Cl19(w34,Hour43,w31);
+ and #(4) and2_Cl6_Cl20(w35,Hour43,w31);
+ dreg #(3) dreg1_Cl7_Cl21(Hour43,w37,w36,Reset,Clock);
+ and #(15) and2_Cl8_Cl22(w36,w28,w34);
+ xor #(15) xor2_Cl9_Cl23(w39,Hour41,w38);
+ and #(25) and2_Cl10_Cl24(w29,Hour41,w38);
+ dreg #(3) dreg1_Cl11_Cl25(Hour41,w41,w40,Reset,Clock);
+ and #(15) and2_Cl12_Cl26(w40,w28,w39);
+ xor #(15) xor2_Cl13_Cl27(w42,Hour40,Enable);
+ and #(25) and2_Cl14_Cl28(w38,Hour40,Enable);
+ dreg #(3) dreg1_Cl15_Cl29(Hour40,w44,w43,Reset,Clock);
+ and #(15) and2_Cl16_Cl30(w43,w28,w42);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#200 Clock=~Clock;
+#1000 Enable=~Enable;
+#2000 Reset=~Reset;
+
+// Simulation parameters
+// Clock CLK 2.000 2.000
+// Enable CLK 10 10
+// Reset CLK 20 20

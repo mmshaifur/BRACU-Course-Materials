@@ -1,0 +1,48 @@
+// DSCH 2.6h
+// 3/25/2003 10:09:53 PM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\74ls138.sch
+
+module 74ls138( A,B,C,G2A,G2B,G1,O7,O6,
+ O5,O4,O3,O2,O1,O0);
+ input A,B,C,G2A,G2B,G1;
+ output O7,O6,O5,O4,O3,O2,O1,O0;
+ not #(10) inv(w5,G2A);
+ and #(16) and3(w7,A,w6,C);
+ not #(31) inv(w8,C);
+ not #(31) inv(w6,B);
+ not #(31) inv(w9,A);
+ and #(16) and3(w10,w9,B,C);
+ and #(16) and3(w11,w9,w6,C);
+ and #(16) and3(w19,w9,w6,w8);
+ and #(65) and3(w23,w5,w22,G1);
+ and #(16) and3(w24,A,w6,w8);
+ not #(10) inv(w22,G2B);
+ nand #(16) nand2(O0,w23,w19);
+ and #(16) and3(w26,A,B,C);
+ and #(16) and3(w27,A,B,w8);
+ and #(16) and3(w28,w9,B,w8);
+ nand #(16) nand2(O7,w23,w26);
+ nand #(16) nand2(O6,w23,w10);
+ nand #(16) nand2(O5,w23,w7);
+ nand #(16) nand2(O4,w23,w11);
+ nand #(16) nand2(O3,w23,w27);
+ nand #(16) nand2(O2,w23,w28);
+ nand #(16) nand2(O1,w23,w24);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 B=~B;
+#3000 C=~C;
+#4000 G2A=~G2A;
+#5000 G2B=~G2B;
+#6000 G1=~G1;
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20
+// C CLK 30 30
+// G2A CLK 40 40
+// G2B CLK 50 50
+// G1 CLK 60 60

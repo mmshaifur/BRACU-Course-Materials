@@ -1,0 +1,82 @@
+// DSCH 2.7a
+// 4/29/2004 3:26:41 PM
+// C:\Export dsch2\BCD2digit2Binary7digit.sch
+
+module BCD2digit2Binary7digit( 10,20,80,40,4,8,2,1,
+ b0,b1,b3,b2,b6,b5,b4,out2);
+ input 10,20,80,40,4,8,2,1;
+ output b0,b1,b3,b2,b6,b5,b4,out2;
+ wire w25,w26,w27,w28,w29,w30,w31,w32;
+ wire w33,w34,w35,w36,w37,w38,w39,w40;
+ wire w41,w42,w43,w44,w45,w46,w47,w48;
+ wire w49,w50,w51,w52,w53,w54,w55,w56;
+ xor #(24) xor21_fa1(w3,w25,w1);
+ xor #(10) xor22_fa2(w25,vss,w2);
+ nand #(10) nand21_fa3(w26,w2,vss);
+ nand #(10) nand22_fa4(w27,w2,w1);
+ nand #(10) nand23_fa5(w28,vss,w1);
+ nand #(24) nand31_fa6(w4,w26,w27,w28);
+ xor #(10) xor21_fa7(b1,w29,10);
+ xor #(10) xor22_fa8(w29,vss,2);
+ nand #(10) nand21_fa9(w30,2,vss);
+ nand #(10) nand22_fa10(w31,2,10);
+ nand #(10) nand23_fa11(w32,vss,10);
+ nand #(24) nand31_fa12(w19,w30,w31,w32);
+ xor #(10) xor21_fa13(b2,w33,20);
+ xor #(10) xor22_fa14(w33,w19,4);
+ nand #(10) nand21_fa15(w34,4,w19);
+ nand #(10) nand22_fa16(w35,4,20);
+ nand #(10) nand23_fa17(w36,w19,20);
+ nand #(24) nand31_fa18(w20,w34,w35,w36);
+ xor #(24) xor21_fa19(w21,w37,10);
+ xor #(10) xor22_fa20(w37,w20,8);
+ nand #(10) nand21_fa21(w38,8,w20);
+ nand #(10) nand22_fa22(w39,8,10);
+ nand #(10) nand23_fa23(w40,w20,10);
+ nand #(24) nand31_fa24(w1,w38,w39,w40);
+ xor #(10) xor21_fa25(b3,w41,40);
+ xor #(10) xor22_fa26(w41,vss,w21);
+ nand #(10) nand21_fa27(w42,w21,vss);
+ nand #(10) nand22_fa28(w43,w21,40);
+ nand #(10) nand23_fa29(w44,vss,40);
+ nand #(24) nand31_fa30(w2,w42,w43,w44);
+ xor #(10) xor21_fa31(b4,w45,80);
+ xor #(10) xor22_fa32(w45,w3,20);
+ nand #(10) nand21_fa33(w46,20,w3);
+ nand #(10) nand22_fa34(w47,20,80);
+ nand #(10) nand23_fa35(w48,w3,80);
+ nand #(24) nand31_fa36(w23,w46,w47,w48);
+ xor #(10) xor21_fa37(b5,w49,40);
+ xor #(10) xor22_fa38(w49,w4,w23);
+ nand #(10) nand21_fa39(w50,w23,w4);
+ nand #(10) nand22_fa40(w51,w23,40);
+ nand #(10) nand23_fa41(w52,w4,40);
+ nand #(24) nand31_fa42(w24,w50,w51,w52);
+ xor #(10) xor21_fa43(b6,w53,80);
+ xor #(10) xor22_fa44(w53,w24,vss);
+ nand #(10) nand21_fa45(w54,vss,w24);
+ nand #(10) nand22_fa46(w55,vss,80);
+ nand #(10) nand23_fa47(w56,w24,80);
+ nand #(10) nand31_fa48(out2,w54,w55,w56);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 10=~10;
+#2000 20=~20;
+#4000 80=~80;
+#8000 40=~40;
+#16000 4=~4;
+#32000 8=~8;
+#64000 2=~2;
+#128000 1=~1;
+
+// Simulation parameters
+// 10 CLK 10 10
+// 20 CLK 20 20
+// 80 CLK 40 40
+// 40 CLK 80 80
+// 4 CLK 160 160
+// 8 CLK 320 320
+// 2 CLK 640 640
+// 1 CLK 1280 1280

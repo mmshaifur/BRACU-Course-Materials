@@ -1,0 +1,24 @@
+USER SYMBOL by DSCH 2.7a
+DATE 3/22/2005 11:55:20 AM
+SYM  #nandZab
+BB(0,0,40,30)
+TITLE 10 -2  #nandZab
+MODEL 6000
+REC(5,5,30,20)
+PIN(0,20,0.00,0.00)in1
+PIN(0,10,0.00,0.00)in2
+PIN(40,10,2.00,1.00)out1
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(35,10,40,10)
+LIG(5,5,5,25)
+LIG(5,5,35,5)
+LIG(35,5,35,25)
+LIG(35,25,5,25)
+VLG module sym3( in1,in2,out1);
+VLG  input in1,in2;
+VLG  output out1;
+VLG  and #(16) and2(w3,in2,in1);
+VLG  not #(10) inv(out1,w3);
+VLG endmodule
+FSYM

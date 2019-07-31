@@ -1,0 +1,18 @@
+// DSCH 2.6h
+// 3/31/2003 5:45:38 PM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\CompileInv3state.sch
+
+module CompileInv3state( Enable,In,Out);
+ input Enable,In;
+ output Out;
+ notif1 #(10) notif1(Out,In,Enable);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Enable=~Enable;
+#2000 In=~In;
+
+// Simulation parameters
+// Enable CLK 10 10
+// In CLK 20 20

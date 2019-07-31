@@ -1,0 +1,26 @@
+* C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\spiceInv.sch
+* DSCH 2.6j
+* created 6/2/2003 3:25:01 PM
+*
+V1 1 0 DC 1.2
+MP1 1 2 3 1 TP W=2u L=0.2u
+MN1 0 2 3 0 TN W=1.0u L=0.2u
+* Input button "in1" 2
+VBTN1 2 0 DC 0 PULSE(0 1.2 1.00N 0.1N 0.1N 1.00N 3.00N )
+* Output "out1" 4
+C1 4 0 0.01pF
+R1 3 4 50
+.MODEL TN NMOS LEVEL=3 UO=120 TOX=3E-9 VTO=0.4
+.MODEL TP PMOS LEVEL=3 UO=50 TOX=3E-9 VTO=-0.4
+.TRAN 0.1N 50N
+* Commands for WinSpice3
+* No break in output file
+*#set nobreak
+* Dump time and volts in "out.txt"
+*#print V(2)  V(4)  > out.txt
+* Run simulation
+*#run
+* Show the result in a window
+*#plot V(2)  V(4) 
+.OPTIONS DELMIN=0 RELTOL=1E-6
+.END

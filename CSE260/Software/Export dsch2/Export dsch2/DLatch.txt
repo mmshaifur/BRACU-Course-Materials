@@ -1,0 +1,27 @@
+// DSCH 2.6b
+// 29/07/02 17:40:17
+// C:\Dsch2\Book on CMOS\DLatch.sch
+// D-latch schematic diagram
+// CMOS implementation with complex gates (Better design)
+// Direct CMOS implementation (poor solution)
+
+module DLatch( Clock,Data,Clock,Data,Data,Clock,Q,nQ,
+ nQ,Q,nQ,Q);
+ input Clock,Data,Clock,Data,Data,Clock;
+ output Q,nQ,nQ,Q,nQ,Q;
+ nand #(16) nand2(w3,Clock,Data);
+ nand #(16) nand2(w7,Clock,w6);
+ not #(10) inv(w8,w7);
+ and #(16) and2(w11,Clock,Data);
+ not #(10) inv(w13,Data);
+ not #(10) inv(w15,Data);
+ assign      s=~((a&b)|c);
+ nor #(23) nor2(nQ,Q,w11);
+ assign      s=~((a&b)|c);
+ nor #(23) nor2(Q,w18,nQ);
+ nor #(23) nor2(nQ,Q,w20);
+ nor #(23) nor2(Q,w8,nQ);
+ not #(10) inv(w6,Data);
+ not #(10) inv(w20,w3);
+ and #(16) and2(w18,Clock,w15);
+endmodule

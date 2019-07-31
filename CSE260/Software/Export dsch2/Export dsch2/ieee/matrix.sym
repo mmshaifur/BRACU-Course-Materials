@@ -1,0 +1,19 @@
+SYM  #matrix
+BB(0,-5,10,5)
+TITLE 5 0  #matrix
+DATE 9.7.2001
+MODEL 710
+PROP 000000
+VIS 0
+PIN(0,0,1,1)left
+PIN(5,5,1,1)down
+PIN(10,0,1,1)right
+PIN(5,-5,1,1)up
+LIG(0,0,10,0)
+LIG(5,5,5,-5)
+LIG(0,0,5,-5)
+LIG(5,-5,10,0)
+LIG(10,0,5,5)
+LIG(5,5,0,0)
+FSYM
+

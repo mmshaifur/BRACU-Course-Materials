@@ -1,0 +1,15 @@
+DSCH 2.0
+SYM  #equ
+BB(-10,-3,10,3)
+DATE 18.05.2003
+TITLE 3 5  #Equivalent
+MODEL 937
+VIS 0
+PIN(0,0,0,0)equ
+LIG(-9,1,9,1)
+LIG(-9,-1,9,-1)
+LIG(8,-2,10,0)
+LIG(8,2,10,0)
+LIG(-8,-2,-10,0)
+LIG(-8,2,-10,0)
+FSYM

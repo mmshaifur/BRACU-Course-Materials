@@ -1,0 +1,18 @@
+// DSCH 2.7a
+// 10/15/2004 2:07:14 PM
+// example
+
+module example( in1,in2,out1);
+ input in1,in2;
+ output out1;
+ and #(16) and2(out1,in2,in1);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 in1=~in1;
+#2000 in2=~in2;
+
+// Simulation parameters
+// in1 CLK 10 10
+// in2 CLK 20 20

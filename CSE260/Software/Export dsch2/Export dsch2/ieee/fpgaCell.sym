@@ -1,0 +1,43 @@
+USER SYMBOL by DSCH 2.6c
+DATE 08/08/02 18:18:52
+SYM  #fpgaCell2
+BB(0,0,50,70)
+TITLE 10 10  #fpgaCell2
+MODEL 6000
+REC(5,5,40,60)
+PIN(0,40,0.00,0.00)F0
+PIN(0,30,0.00,0.00)F1
+PIN(0,20,0.00,0.00)F2
+PIN(15,0,0.00,0.00)DataIn_nQ
+PIN(15,70,0.00,0.00)Clock
+PIN(25,70,0.00,0.00)Reset
+PIN(35,0,0.00,0.00)DataIn_Fout
+PIN(0,50,0.00,0.00)DataIn
+PIN(50,30,2.00,1.00)DataOut
+PIN(50,10,2.00,1.00)Q
+PIN(50,20,2.00,1.00)Fout
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(15,0,15,5)
+LIG(15,65,15,70)
+LIG(25,65,25,70)
+LIG(35,0,35,5)
+LIG(0,50,5,50)
+LIG(45,30,50,30)
+LIG(45,10,50,10)
+LIG(45,20,50,20)
+LIG(5,5,5,65)
+LIG(5,5,45,5)
+LIG(45,5,45,65)
+LIG(45,65,5,65)
+VLG module fpgaCell2( F0,F1,F2,DataIn_nQ,Clock,Reset,DataIn_Fout,DataIn,
+VLG  DataOut,Q,Fout);
+VLG  input F0,F1,F2,DataIn_nQ,Clock,Reset,DataIn_Fout,DataIn;
+VLG  output DataOut,Q,Fout;
+VLG  lut #(23) lut(Fout,F0,F1,F2,00000001);
+VLG  mux #(10) mux(w8,DataIn,Fout,DataIn_Fout);
+VLG  mux #(10) mux(DataOut,DataIn,w12,DataIn_nQ);
+VLG  dreg #(19) dreg2(Q,w12,w8,Reset,Clock);
+VLG endmodule
+FSYM

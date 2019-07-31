@@ -1,0 +1,101 @@
+USER SYMBOL by DSCH 2.7a
+DATE 4/29/2004 3:26:41 PM
+SYM  #BCD2digit2Binary7digit
+BB(0,0,40,90)
+TITLE 10 -2  #BCD2digit2Binary7digit
+MODEL 6000
+REC(5,5,30,80)
+PIN(0,40,0.00,0.00)10
+PIN(0,30,0.00,0.00)20
+PIN(0,10,0.00,0.00)80
+PIN(0,20,0.00,0.00)40
+PIN(0,60,0.00,0.00)4
+PIN(0,50,0.00,0.00)8
+PIN(0,70,0.00,0.00)2
+PIN(0,80,0.00,0.00)1
+PIN(40,80,2.00,1.00)b0
+PIN(40,70,2.00,1.00)b1
+PIN(40,50,2.00,1.00)b3
+PIN(40,60,2.00,1.00)b2
+PIN(40,20,2.00,1.00)b6
+PIN(40,30,2.00,1.00)b5
+PIN(40,40,2.00,1.00)b4
+PIN(40,10,2.00,1.00)out2
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(0,60,5,60)
+LIG(0,50,5,50)
+LIG(0,70,5,70)
+LIG(0,80,5,80)
+LIG(35,80,40,80)
+LIG(35,70,40,70)
+LIG(35,50,40,50)
+LIG(35,60,40,60)
+LIG(35,20,40,20)
+LIG(35,30,40,30)
+LIG(35,40,40,40)
+LIG(35,10,40,10)
+LIG(5,5,5,85)
+LIG(5,5,35,5)
+LIG(35,5,35,85)
+LIG(35,85,5,85)
+VLG module BCD2digit2Binary7digit( 10,20,80,40,4,8,2,1,
+VLG  b0,b1,b3,b2,b6,b5,b4,out2);
+VLG  input 10,20,80,40,4,8,2,1;
+VLG  output b0,b1,b3,b2,b6,b5,b4,out2;
+VLG  wire w25,w26,w27,w28,w29,w30,w31,w32;
+VLG  wire w33,w34,w35,w36,w37,w38,w39,w40;
+VLG  wire w41,w42,w43,w44,w45,w46,w47,w48;
+VLG  wire w49,w50,w51,w52,w53,w54,w55,w56;
+VLG  xor #(24) xor21_fa1(w3,w25,w1);
+VLG  xor #(10) xor22_fa2(w25,vss,w2);
+VLG  nand #(10) nand21_fa3(w26,w2,vss);
+VLG  nand #(10) nand22_fa4(w27,w2,w1);
+VLG  nand #(10) nand23_fa5(w28,vss,w1);
+VLG  nand #(24) nand31_fa6(w4,w26,w27,w28);
+VLG  xor #(10) xor21_fa7(b1,w29,10);
+VLG  xor #(10) xor22_fa8(w29,vss,2);
+VLG  nand #(10) nand21_fa9(w30,2,vss);
+VLG  nand #(10) nand22_fa10(w31,2,10);
+VLG  nand #(10) nand23_fa11(w32,vss,10);
+VLG  nand #(24) nand31_fa12(w19,w30,w31,w32);
+VLG  xor #(10) xor21_fa13(b2,w33,20);
+VLG  xor #(10) xor22_fa14(w33,w19,4);
+VLG  nand #(10) nand21_fa15(w34,4,w19);
+VLG  nand #(10) nand22_fa16(w35,4,20);
+VLG  nand #(10) nand23_fa17(w36,w19,20);
+VLG  nand #(24) nand31_fa18(w20,w34,w35,w36);
+VLG  xor #(24) xor21_fa19(w21,w37,10);
+VLG  xor #(10) xor22_fa20(w37,w20,8);
+VLG  nand #(10) nand21_fa21(w38,8,w20);
+VLG  nand #(10) nand22_fa22(w39,8,10);
+VLG  nand #(10) nand23_fa23(w40,w20,10);
+VLG  nand #(24) nand31_fa24(w1,w38,w39,w40);
+VLG  xor #(10) xor21_fa25(b3,w41,40);
+VLG  xor #(10) xor22_fa26(w41,vss,w21);
+VLG  nand #(10) nand21_fa27(w42,w21,vss);
+VLG  nand #(10) nand22_fa28(w43,w21,40);
+VLG  nand #(10) nand23_fa29(w44,vss,40);
+VLG  nand #(24) nand31_fa30(w2,w42,w43,w44);
+VLG  xor #(10) xor21_fa31(b4,w45,80);
+VLG  xor #(10) xor22_fa32(w45,w3,20);
+VLG  nand #(10) nand21_fa33(w46,20,w3);
+VLG  nand #(10) nand22_fa34(w47,20,80);
+VLG  nand #(10) nand23_fa35(w48,w3,80);
+VLG  nand #(24) nand31_fa36(w23,w46,w47,w48);
+VLG  xor #(10) xor21_fa37(b5,w49,40);
+VLG  xor #(10) xor22_fa38(w49,w4,w23);
+VLG  nand #(10) nand21_fa39(w50,w23,w4);
+VLG  nand #(10) nand22_fa40(w51,w23,40);
+VLG  nand #(10) nand23_fa41(w52,w4,40);
+VLG  nand #(24) nand31_fa42(w24,w50,w51,w52);
+VLG  xor #(10) xor21_fa43(b6,w53,80);
+VLG  xor #(10) xor22_fa44(w53,w24,vss);
+VLG  nand #(10) nand21_fa45(w54,vss,w24);
+VLG  nand #(10) nand22_fa46(w55,vss,80);
+VLG  nand #(10) nand23_fa47(w56,w24,80);
+VLG  nand #(10) nand31_fa48(out2,w54,w55,w56);
+VLG endmodule
+FSYM

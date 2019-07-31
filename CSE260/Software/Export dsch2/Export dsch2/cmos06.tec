@@ -1,0 +1,19 @@
+DSCH 2.0 - technology file
+NAME "AMS 0.6um"
+VERSION 10.10.1999
+* Time unit for simulation
+TIMEUNIT = 0.1
+* Supply voltage
+VDD = 5
+* Typical gate delay in ns
+TDelay = 0.15
+* Typical wire delay in ns
+TWireDelay = 0.2
+* Typical current in mA
+TCurrent = 1.2
+* Default MOS length and width
+ML  = "0.6u"
+MW  = "4.0u"
+*
+* End ams06.tec
+*

@@ -1,0 +1,28 @@
+USER SYMBOL by DSCH 2.0c
+DATE 20/10/99 21:35:06
+SYM  #RSNand.sym
+BB(0,0,40,30)
+TITLE 10 10  #RSNand
+MODEL 6000
+REC(10,0,20,30)
+PIN(0,20,0.000,0)Reset
+PIN(0,10,0.000,0)Set
+PIN(40,10,0.060,0)Q
+PIN(40,20,0.060,0)nQ
+LIG(0,20,10,20)
+LIG(0,10,10,10)
+LIG(30,10,40,10)
+LIG(30,20,40,20)
+LIG(10,0,10,30)
+LIG(10,0,30,0)
+LIG(30,0,30,30)
+LIG(30,30,10,30)
+VLG  nand nand2(out,a,b);
+VLG 
+VLG module RSNand( Reset,Set,Q,nQ);
+VLG  input Reset,Set;
+VLG  output Q,nQ;
+VLG  nand nand2 nand21(Q,nQ,Reset);
+VLG  nand nand2 nand22(nQ,Set,Q);
+VLG endmodule
+FSYM

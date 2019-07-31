@@ -1,0 +1,50 @@
+// DSCH 2.7a
+// 8/10/2004 3:35:54 PM
+// C:\Documents and Settings\All Users\Documents\Softwares\VLSI Softwares\Export dsch2\nand2Cmos.sch
+
+module nand2Cmos( B,A,A,B,B,A,A,B,
+ Nand2,Nand2,Nand2,Nand2);
+ input B,A,A,B,B,A,A,B;
+ output Nand2,Nand2,Nand2,Nand2;
+ nmos #(107) nmos(w2,vss,B); // 1.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,B); // 2.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,A); // 2.0u 0.12u
+ nmos #(121) nmos(Nand2,w2,A); // 1.0u 0.12u
+ nmos #(121) nmos(Nand2,w5,A); // 1.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,A); // 2.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,B); // 2.0u 0.12u
+ nmos #(107) nmos(w5,vss,B); // 1.0u 0.12u
+ nmos #(107) nmos(w10,vss,B); // 1.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,B); // 2.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,A); // 2.0u 0.12u
+ nmos #(121) nmos(Nand2,w10,A); // 1.0u 0.12u
+ nmos #(121) nmos(Nand2,w13,A); // 1.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,A); // 2.0u 0.12u
+ pmos #(121) pmos(Nand2,vdd,B); // 2.0u 0.12u
+ nmos #(107) nmos(w13,vss,B); // 1.0u 0.12u
+ pmos #(150) pmos(vdd,w17,w18); // 2.0u 0.12u
+ pmos #(150) pmos(vdd,w17,w19); // 2.0u 0.12u
+ pmos #(10) pmos(w21,vdd,w20); // 2.0u 0.12u
+ pmos #(10) pmos(w21,vdd,w22); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 B=~B;
+#2000 A=~A;
+#4000 A=~A;
+#8000 B=~B;
+#16000 B=~B;
+#32000 A=~A;
+#64000 A=~A;
+#128000 B=~B;
+
+// Simulation parameters
+// B CLK 10 10
+// A CLK 20 20
+// A CLK 40 40
+// B CLK 80 80
+// B CLK 160 160
+// A CLK 320 320
+// A CLK 640 640
+// B CLK 1280 1280

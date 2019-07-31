@@ -1,0 +1,23 @@
+// DSCH 2.6i
+// 4/11/2003 11:56:00 PM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\faddTest.sch
+
+module faddTest( clk1,clk3,clk2,digit13,digit14);
+ input clk1,clk3,clk2;
+ output digit13,digit14;
+ wire w8;
+ xor #(15) xor2_fu1(w8,clk3,clk2);
+ assign digit13=(clk3&clk2)|(clk1&(clk3|clk2));
+ xor #(15) xor2_fu3(digit14,w8,clk1);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 clk1=~clk1;
+#4000 clk3=~clk3;
+#2000 clk2=~clk2;
+
+// Simulation parameters
+// clk1 CLK 10.00 10.00
+// clk3 CLK 40.00 40.00
+// clk2 CLK 20.00 20.00

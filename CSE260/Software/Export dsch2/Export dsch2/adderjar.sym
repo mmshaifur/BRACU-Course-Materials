@@ -1,0 +1,32 @@
+USER SYMBOL by DSCH 2.7a
+DATE 8/10/2004 6:43:28 PM
+SYM  #adderjar
+BB(0,0,40,40)
+TITLE 10 -2  #adderjar
+MODEL 6000
+REC(5,5,30,30)
+PIN(0,30,0.00,0.00)A
+PIN(0,20,0.00,0.00)B
+PIN(0,10,0.00,0.00)C
+PIN(40,10,2.00,1.00)S
+PIN(40,20,2.00,1.00)Cout
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(35,10,40,10)
+LIG(35,20,40,20)
+LIG(5,5,5,35)
+LIG(5,5,35,5)
+LIG(35,5,35,35)
+LIG(35,35,5,35)
+VLG module sym8( A,B,C,S,Cout);
+VLG  input A,B,C;
+VLG  output S,Cout;
+VLG  xor #(16) xor2(w3,A,B);
+VLG  xor #(16) xor2(S,w3,C);
+VLG  or #(19) or3(Cout,w6,w7,w8);
+VLG  and #(16) and2(w6,B,A);
+VLG  and #(16) and2(w7,C,B);
+VLG  and #(16) and2(w8,A,C);
+VLG endmodule
+FSYM

@@ -1,0 +1,23 @@
+// DSCH 2.6i
+// 4/28/2003 11:16:31 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\Clk24H00.sch
+
+module Clk24H00( Clock,Enable,Reset,Equ23,Hour21,Hour20,Hour43,Hour42,
+ Hour41,Hour40);
+ input Clock,Enable,Reset;
+ output Equ23,Hour21,Hour20,Hour43,Hour42,Hour41,Hour40;
+ wire w17,w18,w19,w20,w21,w22,w23,w24;
+ wire w25,w26,w27,w28,w29,w30,w31,w32;
+ wire w33,w34,w35,w36,w37,w38,w39,w40;
+ wire w41,w42,w43,w44;
+ buf #(45) buf1(vss,vss);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 GeneralReset=~GeneralReset;
+#200 Quartz=~Quartz;
+
+// Simulation parameters
+// GeneralReset CLK 10 10
+// Quartz CLK 2.000 2.000

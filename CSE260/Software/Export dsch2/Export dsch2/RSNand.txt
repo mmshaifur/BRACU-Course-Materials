@@ -1,0 +1,14 @@
+// DSCH 2.6b
+// 27/07/02 23:26:33
+// C:\Dsch2\Book on CMOS\RSNand.sch
+
+module RSNand( Reset,Set,Q,nQ);
+ input Reset,Set;
+ output Q,nQ;
+ nand #(23) nand2(Q,Set,nQ);
+ nand #(23) nand2(nQ,Q,Reset);
+endmodule
+
+// Simulation parameters
+// Reset CLK 10 10
+// Set CLK 20 20

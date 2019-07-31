@@ -1,0 +1,34 @@
+* C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\spiceInv.sch
+* DSCH 2.6i
+* created 5/9/2003 9:35:02 AM
+*
+V1 1 0 DC 1.2
+MP1 2 1 3 1 TP W=2.0u L=0.12u
+MN1 2 0 3 0 TN W=1.0u L=0.12u
+* Input button "in1" 2
+VBTN1 2 0 PULSE(0 1.2 1.00N 0.01N 0.01N 1.00N 3.00N )
+* Output "out1" 3
+* Model 3 MosP
+.MODEL  TN  NMOS
++ LEVEL=3            TPG=+1
++ GAMMA=1.140501     THETA=0.8109787    KAPPA=0.1579183    ETA=5.0622310E-02
++ DELTA=0.000000E+00 UO=812.5126        VMAX=1186662.      VTO=0.8
++ TOX=1.9800000E-08  XJ=0.2U            LD=0.1U            NSUB=4.9999999E+16
++ NSS=0.0000000E+00
++ CJ=4.091E-4        MJ=0.307           PB=1.0
++ CJSW=3.078E-10     MJSW=1.0E-2
++ CGSO=3.93E-10      CGDO=3.93E-10
+* Model 3 MosP
+.MODEL  TP  PMOS
++ LEVEL=3            TPG=-1
++ GAMMA=1.211640     THETA=0.1184638    KAPPA=0.2162577    ETA=2.7580135E-02
++ DELTA=0.000000E+00 UO=89.16160        VMAX=5.9000000E+07 VTO=-0.8
++ TOX=1.9800000E-08  XJ=0.4U            LD=0.28U           NSUB=4.9999999E+17
++ NSS=0.0000000E+00
++ CJ=6.852E-4        MJ=0.429           PB=1.0
++ CJSW=5.217E-10     MJSW=0.351
++ CGSO=7.29E-10      CGDO=7.29E-10
+.TRAN 0.1N 50N
+*#run
+*#plot V(2)  V(3) 
+.END

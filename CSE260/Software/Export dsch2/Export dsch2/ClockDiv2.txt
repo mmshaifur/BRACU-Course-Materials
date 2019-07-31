@@ -1,0 +1,18 @@
+// DSCH 2.6i
+// 4/27/2003 2:35:25 PM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\ClockDiv2.sch
+
+module ClockDiv2( Reset,Clock,ClockDiv2);
+ input Reset,Clock;
+ output ClockDiv2;
+ dreg #(19) dreg1(ClockDiv2,w3,w3,Reset,Clock);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Reset=~Reset;
+#1000 Clock=~Clock;
+
+// Simulation parameters
+// Reset CLK 10 10
+// Clock CLK 10.000 10.000

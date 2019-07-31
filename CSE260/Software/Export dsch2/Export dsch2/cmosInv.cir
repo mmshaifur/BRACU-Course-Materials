@@ -1,0 +1,26 @@
+* C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\cmosInv.sch
+* DSCH 2.6i
+* created 5/9/2003 8:33:49 AM
+*
+VDD 1 0 DC 1.2
+* Output "out2" 4
+* Input "in2" 5
+MN1 2 0 3 0 TN W=sU L=0.6U
+V1 0 0 DC 0
+* Output "out2" 6
+* Input "in2" 7
+V2 0 0 DC 0
+MN2 5 0 4 0 TN W=sU L=0.6U
+V3 1 0 DC 1.2
+MP1 5 1 4 1 TP W=sU L=0.6U
+MP2 7 1 6 1 TP W=sU L=0.6U
+V4 1 0 DC 1.2
+MN3 7 0 6 0 TN W=sU L=0.6U
+V5 0 0 DC 0
+MP3 2 1 3 1 TP W=sU L=0.6U
+V6 1 0 DC 1.2
+.MODEL TN NMOS LEVEL=2 KP=120E-6 VTO=0.65
+.MODEL TP PMOS LEVEL=2 KP=50E-6 VTO=-0.65
+.TRAN 0.1N 50N
+.PROBE
+.END

@@ -1,0 +1,22 @@
+// DSCH 2.6h
+// 4/7/2003 10:16:55 PM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\xor2_16.sch
+
+module xor2_16( b,a,Xor2);
+ input b,a;
+ output Xor2;
+ nand #(16) nand2(w4,a,w3);
+ nand #(16) nand2(Xor2,w4,w5);
+ nand #(16) nand2(w5,b,w7);
+ not #(10) inv(w3,b);
+ not #(10) inv(w7,a);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 b=~b;
+#2000 a=~a;
+
+// Simulation parameters
+// b CLK 10 10
+// a CLK 20 20

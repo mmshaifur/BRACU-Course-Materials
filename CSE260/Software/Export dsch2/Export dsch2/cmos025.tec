@@ -1,0 +1,19 @@
+DSCH 2.0 - technology file
+NAME "CMOS 0.25um"
+VERSION 30.09.1999
+* Time unit for simulation
+TIMEUNIT = 0.02
+* Supply voltage
+VDD = 2.5
+* Typical gate delay in ns
+TDelay = 0.06
+* Typical wire delay in ns
+TWireDelay = 0.1
+* Typical current in mA
+TCurrent = 1
+* Default MOS length and width
+ML  = "0.25u"
+MW  = "2.0u"
+*
+* End cmos025.tec
+*

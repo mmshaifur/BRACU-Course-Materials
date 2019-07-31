@@ -1,0 +1,22 @@
+// DSCH 2.6i
+// 4/18/2003 9:39:21 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\SupEqu10.sch
+
+module SupEqu10( Z0,Z1,Z2,Z3,Z4,SupOrEqual10);
+ input Z0,Z1,Z2,Z3,Z4;
+ output SupOrEqual10;
+ or #(19) or3(SupOrEqual10,Z4,w6,w7);
+ and #(16) and2(w6,Z2,Z3);
+ and #(16) and2(w7,Z1,Z3);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Z4=~Z4;
+
+// Simulation parameters
+// Z0 CLK 10 10
+// Z1 CLK 20 20
+// Z2 GND
+// Z3 GND
+// Z4 CLK 10 10

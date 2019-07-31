@@ -1,0 +1,23 @@
+// DSCH 2.6b
+// 29/07/02 17:24:46
+// C:\Dsch2\Book on CMOS\buffer.sch
+
+module buffer( enable_4,Data_in,enable_1,clk1,inv1_out,inv4_out);
+ input enable_4,Data_in,enable_1,clk1;
+ output inv1_out,inv4_out;
+ not #(30) not(inv4_out,w1);
+ not #(30) not(inv4_out,w1);
+ not #(30) not(inv4_out,w1);
+ not #(30) not(inv4_out,w1);
+ not #(9) not(inv1_out,w3);
+ notif1 #(32) notif1(w1,Data_in,enable_4);
+ notif1 #(11) notif1(w3,Data_in,enable_1);
+endmodule
+
+always
+# 10 clk1=~clk1;
+// Simulation parameters
+// enable_4 CLK 10 10
+// Data_in CLK 20 20
+// enable_1 CLK 30 30
+// clk1 CLK 10 10

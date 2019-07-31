@@ -1,0 +1,12 @@
+// DSCH 2.7a
+// 3/19/2004 11:02:56 PM
+// C:\Export dsch2\ieee\Jk.sym
+
+module Jk( J,K,Preset,Clear,clk1,out2,out1);
+ input J,K,Preset,Clear,clk1;
+ output out2,out1;
+endmodule
+
+// Simulation parameters in Verilog Format
+
+// Simulation parameters

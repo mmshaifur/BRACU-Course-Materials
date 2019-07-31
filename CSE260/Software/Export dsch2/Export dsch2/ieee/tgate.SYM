@@ -1,0 +1,27 @@
+DSCH2
+SYM #tgate
+BB(0,-5,20,15)
+DATE 13.03.2002
+TITLE 15 10 #tgate
+MODEL 6000
+PROP 2.4 1.2
+PIN(0,5,0,0)in
+PIN(10,-5,0,0)en
+PIN(20,5,2.0,2.0)out
+LIG(0,5,5,5)
+LIG(10,-5,10,5)
+LIG(15,5,20,5)
+LIG(5,10,5,0)
+LIG(15,10,15,0)
+LIG(5,10,15,0)
+LIG(5,0,15,10)
+VLG // transmission gate description
+VLG module tgate(in,en,out);
+VLG  input in,en;
+VLG  output out;
+VLG  wire nEn;
+VLG  not  not1(nEn,en);
+VLG  nmos nmos1(out,in,en);
+VLG  pmos pmos1(out,in,nEn);
+VLG endmodule
+FSYM

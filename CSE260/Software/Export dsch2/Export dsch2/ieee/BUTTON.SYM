@@ -1,0 +1,19 @@
+DSCH2
+SYM #button
+BB(-4,-4,5,4)
+TITLE 0 0  #button
+DATE 26.09.1999
+MODEL 59
+PIN(5,0,0,0)in
+VIS 1
+REC(-3,-3,6,6,red)
+LIG(4,0,5,0)
+LIG(-4,4,-4,-4)
+LIG(4,4,-4,4)
+LIG(4,-4,4,4)
+LIG(-4,-4,4,-4)
+LIG(-3,3,-3,-3)
+LIG(3,3,-3,3)
+LIG(3,-3,3,3)
+LIG(-3,-3,3,-3)
+FSYM

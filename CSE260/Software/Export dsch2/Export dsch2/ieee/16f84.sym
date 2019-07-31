@@ -1,0 +1,60 @@
+USER SYMBOL by DSCH 2.6j
+DATE 7/12/2003 6:08:30 PM
+SYM  #16f84
+BB(0,0,40,100)
+TITLE 10 20  #16f84
+MODEL 2084
+REC(5,5,30,90)
+PIN(0,10,2.00,1.00)RA2
+PIN(0,20,2.00,1.00)RA3
+PIN(0,30,2.00,1.00)RA4
+PIN(0,40,0.00,0.00)~MCLR
+PIN(0,50,0.00,0.00)VSS
+PIN(0,60,2.00,1.00)RB0
+PIN(0,70,2.00,1.00)RB1
+PIN(0,80,2.00,1.00)RB2
+PIN(0,90,2.00,1.00)RB3
+PIN(40,10,2.00,1.00)RA1
+PIN(40,20,2.00,1.00)RA0
+PIN(40,30,0.00,0.00)ClkIn
+PIN(40,40,2.00,1.00)ClkOut
+PIN(40,50,0.00,0.00)VDD
+PIN(40,60,2.00,1.00)RB7
+PIN(40,70,2.00,1.00)RB6
+PIN(40,80,2.00,1.00)RB5
+PIN(40,90,2.00,1.00)RB4
+LIG(0,60,5,60)
+LIG(0,70,5,70)
+LIG(0,80,5,80)
+LIG(0,90,5,90)
+LIG(0,50,5,50)
+LIG(0,30,5,30)
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(0,40,5,40)
+LIG(35,30,40,30)
+LIG(35,40,40,40)
+LIG(35,90,40,90)
+LIG(35,80,40,80)
+LIG(35,50,40,50)
+LIG(35,20,40,20)
+LIG(35,10,40,10)
+LIG(35,60,40,60)
+LIG(35,70,40,70)
+LIG(5,5,5,95)
+LIG(5,5,35,5)
+LIG(35,5,35,95)
+LIG(35,95,5,95)
+MEM; PIC16f84 by Etienne Sicard for Dsch
+MEM; Simple program to put 10101010 on port B
+MEM;                       01010101 on port B
+MEM;
+MEMPortB equ 0x06 ; declares the address of output port B
+MEM
+MEM      org	0
+MEMloop  movlw  0x55  ; load W with a pattern (hexa format)
+MEM      movwf	PortB ; Moves the pattern to port B
+MEM      movlw  0xaa  ; load W with an other pattern
+MEM      movwf	PortB ; Moves the pattern to port B
+MEM      goto   loop  ; and again
+FSYM

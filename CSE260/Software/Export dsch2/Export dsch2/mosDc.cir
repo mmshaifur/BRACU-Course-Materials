@@ -1,0 +1,25 @@
+* C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\spiceInv.sch
+* DSCH 2.6i
+* created 5/9/2003 10:18:39 AM
+*
+MN1 0 2 3 0 TN W=1.0u L=0.12u
+* Gate n°2
+VG 2 0 DC 1.2
+VD 3 0 DC 1.2
+*
+* Mos models in 0.12µm
+* Model 3 n-channel MOS
+.MODEL  TN  NMOS
++ LEVEL=3            TPG=+1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.1        ETA=0.002
++ DELTA=0.0          UO=620             VMAX=100E3       VTO=0.35
++ TOX=3e-9           XJ=0.1U            LD=0.00U         NSUB=1E+18
++ NSS=0.2            NFS=7E11
++ CJ=4.091E-4        MJ=0.307           PB=1.0
++ CJSW=3.078E-10     MJSW=1.0E-2
++ CGSO=3.93E-10      CGDO=3.93E-10
+.DC VD 0 1.2 0.1 VG 0 1.2 0.2 
+*#run
+*#plot -I(VD)
+.OPTIONS RELTOL=0.00001
+.END

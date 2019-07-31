@@ -1,0 +1,19 @@
+USER SYMBOL by DSCH 2.6g
+DATE 1/23/2003 11:34:04 PM
+SYM  #dut
+BB(0,0,35,30)
+TITLE 10 10  #dut
+MODEL 6000
+REC(5,5,25,20)
+PIN(15,0,0.00,0.00)in1
+PIN(15,30,0.00,0.00)in2
+LIG(15,0,15,5)
+LIG(15,25,15,30)
+LIG(5,5,5,25)
+LIG(5,5,30,5)
+LIG(30,5,30,25)
+LIG(30,25,5,25)
+VLG module sym3( in1,in2);
+VLG  input in1,in2;
+VLG endmodule
+FSYM

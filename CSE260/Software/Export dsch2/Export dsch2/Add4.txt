@@ -1,0 +1,35 @@
+// DSCH 2.6i
+// 4/15/2003 9:28:18 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\Add4.sch
+
+module Add4( b0,b1,b2,b3,a0,a1,a2,a3,
+ sum4,sum3,sum2,sum1,sum0,sum4,sum3,sum2,
+ sum1,sum0,out2);
+ input b0,b1,b2,b3,a0,a1,a2,a3;
+ output sum4,sum3,sum2,sum1,sum0,sum4,sum3,sum2;
+ output sum1,sum0,out2;
+ wire w23,w24,w25;
+ xor #(20) xor2_ha1(sum0,b0,a0);
+ and #(22) and2_ha2(w9,a0,b0);
+ xor #(15) xor2_fu3(w23,b2,a2);
+ assign w19=(b2&a2)|(w18&(b2|a2))
+ xor #(22) xor2_fu5(sum2,w23,w18);
+ xor #(15) xor2_fu6(w24,b1,a1);
+ assign w18=(b1&a1)|(w9&(b1|a1))
+ xor #(22) xor2_fu8(sum1,w24,w9);
+ xor #(15) xor2_fu9(w25,b3,a3);
+ assign out2=(b3&a3)|(w19&(b3|a3))
+ xor #(22) xor2_fu11(sum3,w25,w19);
+endmodule
+
+// Simulation parameters in Verilog Format
+
+// Simulation parameters
+// b0 CLK 10 10
+// b1 CLK 20 20
+// b2 GND
+// b3 GND
+// a0 CLK 30 30
+// a1 CLK 40 40
+// a2 GND
+// a3 GND

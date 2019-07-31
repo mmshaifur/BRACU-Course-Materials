@@ -1,0 +1,20 @@
+// DSCH 2.6b
+// 31/07/02 22:26:29
+// C:\Dsch2\Book on CMOS\dregCompile.sch
+
+module dregCompile( Clock,Reset,Data,Q,nQ);
+ input Clock,Reset,Data;
+ output Q,nQ;
+ dreg #(19) dreg3(Q,nQ,Data,Reset,Clock);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Clock=~Clock;
+#2000 Reset=~Reset;
+#3000 Data=~Data;
+
+// Simulation parameters
+// Clock CLK 10 10
+// Reset CLK 20 20
+// Data CLK 30 30

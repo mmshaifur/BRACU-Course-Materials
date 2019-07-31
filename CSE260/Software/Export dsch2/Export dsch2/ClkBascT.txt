@@ -1,0 +1,25 @@
+// DSCH 2.6i
+// 4/28/2003 11:47:55 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\ClkBascT.sch
+
+module ClkBascT( T,~SClear,Reset,Clock,Q,ClkOut);
+ input T,~SClear,Reset,Clock;
+ output Q,ClkOut;
+ xor #(16) xor2(w6,Q,T);
+ and #(16) and2(ClkOut,Q,T);
+ dreg #(12) dreg1(Q,w9,w8,Reset,Clock);
+ and #(16) and2(w8,~SClear,w6);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 T=~T;
+#2000 ~SClear=~~SClear;
+#4000 Reset=~Reset;
+#8000 Clock=~Clock;
+
+// Simulation parameters
+// T CLK 10 10
+// ~SClear CLK 20 20
+// Reset CLK 40 40
+// Clock CLK 80 80

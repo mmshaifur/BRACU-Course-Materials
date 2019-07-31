@@ -1,0 +1,21 @@
+// DSCH 2.6b
+// 08/08/02 11:26:26
+// C:\Dsch2\Book on CMOS\DLatchVeriolg.sch
+
+module DLatchVeriolg( Data,Clock,nQ,Q);
+ input Data,Clock;
+ output nQ,Q;
+ nmos #(17) nmos(w4,Data,Clock); // 1.0u 0.12u
+ not #(17) inv(nQ,w4);
+ not #(17) inv(Q,nQ);
+ pmos #(17) pmos(w4,Q,Clock); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Data=~Data;
+#1000 Clock=~Clock;
+
+// Simulation parameters
+// Data CLK 10.000 10.000
+// Clock CLK 10 10

@@ -1,0 +1,23 @@
+// DSCH 2.6b
+// 29/07/02 17:34:11
+// C:\Dsch2\Book on CMOS\Adder.sch
+
+module Adder( clk1,in1);
+ input clk1,in1;
+ wire w11,w12,w13,w14;
+ xor #(3) xor21_fa1(w4,w11,w1);
+ xor #(10) xor22_fa2(w11,clk1,w2);
+ nand #(10) nand21_fa3(w12,w2,clk1);
+ nand #(10) nand22_fa4(w13,w2,w1);
+ nand #(10) nand23_fa5(w14,clk1,w1);
+ nand #(3) nand31_fa6(w5,w12,w13,w14);
+ xor #(6) xor2_ha7(w9,w7,w6);
+ and #(8) and2_ha8(w8,w6,w7);
+endmodule
+
+always
+# 1000 clk1=~clk1;
+# 1000 in1=~in1;
+// Simulation parameters
+// clk1 CLK 10 10
+// in1 CLK 10 10

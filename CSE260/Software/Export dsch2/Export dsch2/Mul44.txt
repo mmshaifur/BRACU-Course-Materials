@@ -1,0 +1,143 @@
+// DSCH 2.6i
+// 4/18/2003 10:27:54 AM
+// C:\Documents and Settings\Administrator\My Documents\Dsch2\Book on CMOS\Mul44.sch
+
+module Mul44( Ai0,Ai1,Ai2,Ai3,Bi0,Bi1,Bi2,Bi3,
+ AxB7,AxB6,AxB5,AxB4,AxB3,AxB2,AxB1,AxB0);
+ input Ai0,Ai1,Ai2,Ai3,Bi0,Bi1,Bi2,Bi3;
+ output AxB7,AxB6,AxB5,AxB4,AxB3,AxB2,AxB1,AxB0;
+ wire w41,w42,w43,w44,w45,w46,w47,w48;
+ wire w49,w50,w51,w52,w53,w54,w55,w56;
+ wire w57,w58,w59,w60,w61,w62,w63,w64;
+ wire w65,w66,w67,w68,w69,w70,w71,w72;
+ wire w73,w74,w75,w76,w77,w78,w79,w80;
+ wire w81,w82,w83,w84,w85,w86,w87,w88;
+ wire w89,w90,w91,w92,w93,w94,w95,w96;
+ wire w97,w98,w99,w100,w101,w102,w103,w104;
+ wire w105,w106,w107,w108,w109,w110,w111,w112;
+ wire w113,w114,w115,w116,w117,w118,w119,w120;
+ and #(24) and2_Mu1(w41,Bi3,Ai0);
+ xor #(24) xor9_Mu2(w10,w42,w41);
+ xor #(10) xor10_Mu3(w42,vss,w9);
+ nand #(10) nand11_Mu4(w43,w9,vss);
+ nand #(10) nand12_Mu5(w44,w9,w41);
+ nand #(10) nand13_Mu6(w45,vss,w41);
+ nand #(24) nand14_Mu7(w11,w43,w44,w45);
+ and #(24) and2_Mu8(w46,Bi1,Ai2);
+ xor #(24) xor9_Mu9(w22,w47,w46);
+ xor #(10) xor10_Mu10(w47,w20,w21);
+ nand #(10) nand11_Mu11(w48,w21,w20);
+ nand #(10) nand12_Mu12(w49,w21,w46);
+ nand #(10) nand13_Mu13(w50,w20,w46);
+ nand #(24) nand14_Mu14(w23,w48,w49,w50);
+ and #(24) and2_Mu15(w51,Bi3,Ai1);
+ xor #(24) xor9_Mu16(w25,w52,w51);
+ xor #(10) xor10_Mu17(w52,w11,w24);
+ nand #(10) nand11_Mu18(w53,w24,w11);
+ nand #(10) nand12_Mu19(w54,w24,w51);
+ nand #(10) nand13_Mu20(w55,w11,w51);
+ nand #(24) nand14_Mu21(w26,w53,w54,w55);
+ and #(24) and2_Mu22(w56,Bi0,Ai2);
+ xor #(10) xor9_Mu23(AxB2,w57,w56);
+ xor #(10) xor10_Mu24(w57,vss,w27);
+ nand #(10) nand11_Mu25(w58,w27,vss);
+ nand #(10) nand12_Mu26(w59,w27,w56);
+ nand #(10) nand13_Mu27(w60,vss,w56);
+ nand #(24) nand14_Mu28(w20,w58,w59,w60);
+ and #(24) and2_Mu29(w61,Bi3,Ai2);
+ xor #(24) xor9_Mu30(w29,w62,w61);
+ xor #(10) xor10_Mu31(w62,w26,w28);
+ nand #(10) nand11_Mu32(w63,w28,w26);
+ nand #(10) nand12_Mu33(w64,w28,w61);
+ nand #(10) nand13_Mu34(w65,w26,w61);
+ nand #(24) nand14_Mu35(w30,w63,w64,w65);
+ and #(24) and2_Mu36(w66,Bi2,Ai2);
+ xor #(24) xor9_Mu37(w31,w67,w66);
+ xor #(10) xor10_Mu38(w67,w23,w25);
+ nand #(10) nand11_Mu39(w68,w25,w23);
+ nand #(10) nand12_Mu40(w69,w25,w66);
+ nand #(10) nand13_Mu41(w70,w23,w66);
+ nand #(24) nand14_Mu42(w28,w68,w69,w70);
+ and #(24) and2_Mu43(w71,Bi3,Ai3);
+ xor #(10) xor9_Mu44(AxB6,w72,w71);
+ xor #(10) xor10_Mu45(w72,w30,w32);
+ nand #(10) nand11_Mu46(w73,w32,w30);
+ nand #(10) nand12_Mu47(w74,w32,w71);
+ nand #(10) nand13_Mu48(w75,w30,w71);
+ nand #(10) nand14_Mu49(AxB7,w73,w74,w75);
+ and #(24) and2_Mu50(w76,Bi2,Ai0);
+ xor #(24) xor9_Mu51(w34,w77,w76);
+ xor #(10) xor10_Mu52(w77,vss,w33);
+ nand #(10) nand11_Mu53(w78,w33,vss);
+ nand #(10) nand12_Mu54(w79,w33,w76);
+ nand #(10) nand13_Mu55(w80,vss,w76);
+ nand #(24) nand14_Mu56(w9,w78,w79,w80);
+ and #(24) and2_Mu57(w81,Bi2,Ai1);
+ xor #(24) xor9_Mu58(w21,w82,w81);
+ xor #(10) xor10_Mu59(w82,w35,w10);
+ nand #(10) nand11_Mu60(w83,w10,w35);
+ nand #(10) nand12_Mu61(w84,w10,w81);
+ nand #(10) nand13_Mu62(w85,w35,w81);
+ nand #(24) nand14_Mu63(w24,w83,w84,w85);
+ and #(24) and2_Mu64(w86,Bi1,Ai0);
+ xor #(24) xor9_Mu65(w37,w87,w86);
+ xor #(10) xor10_Mu66(w87,vss,w36);
+ nand #(10) nand11_Mu67(w88,w36,vss);
+ nand #(10) nand12_Mu68(w89,w36,w86);
+ nand #(10) nand13_Mu69(w90,vss,w86);
+ nand #(24) nand14_Mu70(w33,w88,w89,w90);
+ and #(24) and2_Mu71(w91,Bi0,Ai0);
+ xor #(10) xor9_Mu72(AxB0,w92,w91);
+ xor #(10) xor10_Mu73(w92,vss,vss);
+ nand #(10) nand11_Mu74(w93,vss,vss);
+ nand #(10) nand12_Mu75(w94,vss,w91);
+ nand #(10) nand13_Mu76(w95,vss,w91);
+ nand #(24) nand14_Mu77(w36,w93,w94,w95);
+ and #(24) and2_Mu78(w96,Bi1,Ai1);
+ xor #(24) xor9_Mu79(w27,w97,w96);
+ xor #(10) xor10_Mu80(w97,w38,w34);
+ nand #(10) nand11_Mu81(w98,w34,w38);
+ nand #(10) nand12_Mu82(w99,w34,w96);
+ nand #(10) nand13_Mu83(w100,w38,w96);
+ nand #(24) nand14_Mu84(w35,w98,w99,w100);
+ and #(24) and2_Mu85(w101,Bi1,Ai3);
+ xor #(10) xor9_Mu86(AxB4,w102,w101);
+ xor #(10) xor10_Mu87(w102,w31,w39);
+ nand #(10) nand11_Mu88(w103,w39,w31);
+ nand #(10) nand12_Mu89(w104,w39,w101);
+ nand #(10) nand13_Mu90(w105,w31,w101);
+ nand #(24) nand14_Mu91(w40,w103,w104,w105);
+ and #(24) and2_Mu92(w106,Bi2,Ai3);
+ xor #(10) xor9_Mu93(AxB5,w107,w106);
+ xor #(10) xor10_Mu94(w107,w29,w40);
+ nand #(10) nand11_Mu95(w108,w40,w29);
+ nand #(10) nand12_Mu96(w109,w40,w106);
+ nand #(10) nand13_Mu97(w110,w29,w106);
+ nand #(24) nand14_Mu98(w32,w108,w109,w110);
+ and #(24) and2_Mu99(w111,Bi0,Ai3);
+ xor #(10) xor9_Mu100(AxB3,w112,w111);
+ xor #(10) xor10_Mu101(w112,w22,vss);
+ nand #(10) nand11_Mu102(w113,vss,w22);
+ nand #(10) nand12_Mu103(w114,vss,w111);
+ nand #(10) nand13_Mu104(w115,w22,w111);
+ nand #(24) nand14_Mu105(w39,w113,w114,w115);
+ and #(24) and2_Mu106(w116,Bi0,Ai1);
+ xor #(10) xor9_Mu107(AxB1,w117,w116);
+ xor #(10) xor10_Mu108(w117,vss,w37);
+ nand #(10) nand11_Mu109(w118,w37,vss);
+ nand #(10) nand12_Mu110(w119,w37,w116);
+ nand #(10) nand13_Mu111(w120,vss,w116);
+ nand #(24) nand14_Mu112(w38,w118,w119,w120);
+endmodule
+
+// Simulation parameters in Verilog Format
+
+// Simulation parameters
+// Ai0 CLK 10 10
+// Ai1 CLK 20 20
+// Ai2 GND
+// Ai3 GND
+// Bi0 CLK 40 40
+// Bi1 CLK 80 80
+// Bi2 GND
+// Bi3 GND

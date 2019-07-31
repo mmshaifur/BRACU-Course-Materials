@@ -1,0 +1,19 @@
+// DSCH 2.5d
+// 21/04/02 14:00:50
+// C:\Dsch2\Book on CMOS\fadd.sch
+
+module fadd( C,B,A,Sum,Carry);
+ input C,B,A;
+ output Sum,Carry;
+ xor #(12) xor2(w4,A,B);
+ nand #(10) nand2(w5,A,C);
+ nand #(10) nand2(w6,B,C);
+ nand #(10) nand2(w7,B,A);
+ xor #(12) xor2(Sum,w4,C);
+ nand #(10) nand3(Carry,w7,w6,w5);
+endmodule
+
+// Simulation parameters
+// C CLK 10 10
+// B CLK 20 20
+// A CLK 30 30

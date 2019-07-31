@@ -1,0 +1,20 @@
+// DSCH 2.7a
+// 12/22/2004 1:00:24 PM
+// D:\VLSI LAB\VLSI Softwares\Export dsch2\16f84.sch
+
+module 16f84( ~Reset,MainClock,input,led0,led1,led2,led3,led4,
+ led5,led6,led7);
+ input ~Reset,MainClock,input;
+ output led0,led1,led2,led3,led4,led5,led6,led7;
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 ~Reset=~~Reset;
+#500 MainClock=~MainClock;
+#2000 input=~input;
+
+// Simulation parameters
+// ~Reset CLK 10 10
+// MainClock CLK 5.000 5.000
+// input CLK 20 20

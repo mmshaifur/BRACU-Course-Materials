@@ -1,0 +1,32 @@
+USER SYMBOL by DSCH 2.7a
+DATE 16/06/2009 01:13:57
+SYM  #3_And
+BB(0,0,20,40)
+TITLE 10 -2  #3_And
+MODEL 6000
+REC(5,5,10,30)
+PIN(0,10,0.00,0.00)in1
+PIN(0,20,0.00,0.00)in2
+PIN(0,30,0.00,0.00)in3
+PIN(20,10,2.00,1.00)out1
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(0,30,5,30)
+LIG(15,10,20,10)
+LIG(5,5,5,35)
+LIG(5,5,15,5)
+LIG(15,5,15,35)
+LIG(15,35,5,35)
+VLG module 3_And( in1,in2,in3,out1);
+VLG  input in1,in2,in3;
+VLG  output out1;
+VLG  nmos #(10) nmos(w2,vss,in3); // 1.0u 0.12u
+VLG  nmos #(10) nmos(w4,w2,in2); // 1.0u 0.12u
+VLG  nmos #(38) nmos(w6,w4,in1); // 1.0u 0.12u
+VLG  pmos #(38) pmos(w6,vdd,in1); // 2.0u 0.12u
+VLG  pmos #(38) pmos(w6,vdd,in2); // 2.0u 0.12u
+VLG  pmos #(38) pmos(w6,vdd,in3); // 2.0u 0.12u
+VLG  nmos #(23) nmos_In1(out1,vss,w6); //  
+VLG  pmos #(23) pmos_In2(out1,vdd,w6); //  
+VLG endmodule
+FSYM

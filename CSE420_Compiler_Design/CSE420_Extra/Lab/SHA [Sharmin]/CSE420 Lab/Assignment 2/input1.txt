@@ -1,0 +1,17 @@
+7
+a = 1
+b = 2
+c = 2
+g = 2
+p = 3
+t = 1
+w = 2
+5
+a x b + a x c + b x c
+a x c - b / c + c x c
+g + p x t - w x p
+t - g + t - w
+e + t x t - m
+
+
+

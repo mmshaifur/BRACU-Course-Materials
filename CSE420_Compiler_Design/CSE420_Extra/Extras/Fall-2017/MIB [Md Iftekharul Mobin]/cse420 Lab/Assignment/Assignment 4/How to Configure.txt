@@ -1,0 +1,37 @@
+2.1.1 Windows
+To install JFlex on Windows 95/98/NT/XP, follow these three steps:
+
+
+1. Unzip the file you downloaded into the directory you want JFlex in (using something
+like WinZip2). If you unzipped it to say C:\, the following directory structure should be
+generated:
+
+C:\jflex-\ver\
++--bin\ (start scripts)
++--doc\ (FAQ and manual)
++--examples\
++--byaccj\ (calculator example for BYacc/J)
++--cup\ (calculator example for cup)
++--interpreter\ (interpreter example for cup)
++--java\ (Java lexer specification)
++--simple-maven\ (example scanner built with maven)
++--standalone-maven\ (a simple standalone scanner, built with maven)
++--lib\ (precompiled classes, skeleton files)
++--src\
++--main\java\
++--jflex\ (source code of JFlex)
++--jflex\gui (source code of JFlex UI classes)
++--java_cup\runtime\ (source code of cup runtime classes)
++--main\jflex\ (JFlex scanner spec)
++--main\cup\ (JFlex parser spec)
++--main\resources\ (messages and default skeleton file)
++--test\ (unit tests)
+
+
+2. Edit the le bin\jflex.bat (in the example it's C:\JFlex\bin\jflex.bat) such that
+JAVA HOME contains the directory where your Java JDK is installed (for instance C:\java) 
+and JFLEX HOME the directory that contains JFlex (in the example: C:\JFlex)
+
+
+3. Include the bin\ directory of JFlex in your path. (the one that contains the start script,
+in the example: C:\JFlex\bin).
